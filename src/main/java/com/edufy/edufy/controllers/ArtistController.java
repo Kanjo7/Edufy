@@ -1,2 +1,4 @@
-package com.edufy.edufy.controllers;public class ArtistController {
+package com.edufy.edufy.controllers;
+
+public class ArtistController {
 }

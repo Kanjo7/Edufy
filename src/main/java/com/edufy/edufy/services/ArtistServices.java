@@ -1,2 +1,4 @@
-package com.edufy.edufy.services;public class ArtistServices {
+package com.edufy.edufy.services;
+
+public class ArtistServices {
 }
