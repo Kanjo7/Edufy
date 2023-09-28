@@ -1,7 +1,7 @@
 package com.edufy.edufy.controllers;
 
-import com.edufy.edufy.models.Artist;
-import com.edufy.edufy.services.ArtistService;
+import com.edufy.edufy.models.Track;
+import com.edufy.edufy.services.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,25 +16,25 @@ public class ArtistController {
      * RESPONSEENTITIES
      */
     @Autowired
-    private ArtistService artistService;
+    private TrackService trackService;
 
     public ArtistController() {
     }
 
     // GET ALL ARTISTS
-    public List<Artist> getAllAllArtists(){
-        return artistService.getAllArtists();
+    public List<Track> getAllAllArtists(){
+        return trackService.getAllArtists();
     }
     // GET ARTIST BY ID todo: ResponseEntity <----------------------
     @GetMapping("/artistbyid/{id}")
-    public Optional<Artist> artistById(@PathVariable("id") long id){
-        return artistService.getArtistById(id);
+    public Optional<Track> artistById(@PathVariable("id") long id){
+        return trackService.getArtistById(id);
     }
 
     // POST, CREATE/SAVE NEW ARTIST
     @PostMapping("/saveartist")
-    public Artist saveAlbum(Artist newArtist){
-        return artistService.saveArtist(newArtist);
+    public Track saveAlbum(Track newTrack){
+        return trackService.saveArtist(newTrack);
     }
 
     // UPDATE
@@ -43,7 +43,7 @@ public class ArtistController {
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
     @DeleteMapping("/deleteartist/{id}")
     public String deleteArtist(@PathVariable("id") long id){
-        return artistService.deleteArtist(id);
+        return trackService.deleteArtist(id);
     }
 }
 

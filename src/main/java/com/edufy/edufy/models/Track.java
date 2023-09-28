@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Artist {
+public class Track {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,14 +13,14 @@ public class Artist {
 
     private String name;
 
-    @ManyToMany(mappedBy = "artists")
+    @ManyToMany(mappedBy = "artists", fetch = FetchType.EAGER)
     private Set<Album> albums;
 
 
-    public Artist() {
+    public Track() {
     }
 
-    public Artist(String name, Set<Album> albums) {
+    public Track(String name, Set<Album> albums) {
         this.name = name;
         this.albums = albums;
     }

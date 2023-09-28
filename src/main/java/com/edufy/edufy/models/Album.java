@@ -2,6 +2,7 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -14,13 +15,13 @@ public class Album {
 
     private String title;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "album_artist",
+            name = "album_track",
             joinColumns = @JoinColumn(name = "album_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id")
+            inverseJoinColumns = @JoinColumn(name = "track_id")
     )
-    private Set<Artist> artists;
+    private Set<Track> tracks = new HashSet<>();;
 
     /**
     @ManyToOne
@@ -35,9 +36,9 @@ public class Album {
     public Album() {
     }
 
-    public Album(String title, Set<Artist> artists) {
+    public Album(String title, Set<Track> tracks) {
         this.title = title;
-        this.artists = artists;
+        this.tracks = tracks;
     }
 
     public long getId() {
@@ -56,11 +57,11 @@ public class Album {
         this.title = title;
     }
 
-    public Set<Artist> getArtists() {
-        return artists;
+    public Set<Track> getArtists() {
+        return tracks;
     }
 
-    public void setArtists(Set<Artist> artists) {
-        this.artists = artists;
+    public void setArtists(Track track) {
+        this.tracks.add(track);
     }
 }

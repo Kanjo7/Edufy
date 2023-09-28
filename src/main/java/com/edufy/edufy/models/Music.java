@@ -2,6 +2,7 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,25 +14,25 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
 
     @ManyToMany
     @JoinTable(
-            name = "music_artist",
+            name = "music_track",
             joinColumns = @JoinColumn(name = "music_id"),
-            inverseJoinColumns = @JoinColumn(name = "artist_id")
+            inverseJoinColumns = @JoinColumn(name = "track_id")
     )
-    private Set<Artist> artists;
+    private Set<Track> tracks =new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "music_album",
             joinColumns = @JoinColumn(name = "music_id"),
             inverseJoinColumns = @JoinColumn(name = "album_id")
     )
-    private Set<Album> albums;
+    private Set<Album> albums = new HashSet<>();
 
     public Music() {
     }
 
-    public Music(Set<Artist> artists, Set<Album> albums) {
-        this.artists = artists;
+    public Music(Set<Track> tracks, Set<Album> albums) {
+        this.tracks = tracks;
         this.albums = albums;
     }
 
@@ -43,19 +44,19 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
         this.id = id;
     }
 
-    public Set<Artist> getArtists() {
-        return artists;
+    public Set<Track> getArtists() {
+        return tracks;
     }
 
-    public void setArtists(Set<Artist> artists) {
-        this.artists = artists;
+    public void setArtists(Track track) {
+        this.tracks.add(track);
     }
 
     public Set<Album> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(Set<Album> albums) {
-        this.albums = albums;
+    public void setAlbums(Album album) {
+        this.albums.add(album);
     }
 }
