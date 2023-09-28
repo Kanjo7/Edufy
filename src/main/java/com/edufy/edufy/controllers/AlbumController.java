@@ -3,7 +3,6 @@ package com.edufy.edufy.controllers;
 import com.edufy.edufy.models.Album;
 import com.edufy.edufy.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +11,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/")
 public class AlbumController {
-
+    /**
+     * FIXA UPDATERING
+     * RESPONSEENTITIES
+     */
     @Autowired
     private AlbumService albumService;
 
@@ -34,6 +36,8 @@ public class AlbumController {
     public Album saveAlbum(Album newAlbum){
         return albumService.saveAlbum(newAlbum);
     }
+
+    // UPDATE
 
     // DELETE ALBUM
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------

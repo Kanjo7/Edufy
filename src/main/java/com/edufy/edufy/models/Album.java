@@ -2,48 +2,50 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-import java.util.List;
+import java.util.Set;
+
 
 @Entity
 public class Album {
-    /**
-     All media ska ha möjligheten att vara kopplade till ett album med ordning på albumet.
-     - one to one? many to one? till media
-     - Title
-     - Artist oneToOne
-     - Genre oneToOne eller?
-     - Release Date
-     - TrackList, OneToMany till ? -Track- ? egen model??
-     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String title;
-    // @OneToOne()
-    private String Artist;
-    // @OneToOne()
-    private String genre;
-    private Date releaseDate;
-    // GETTER N SETTER     TODO: FIX THIS LATER           <-------------------------
-    //@OneToMany
-    // private List<Track> trackList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "album_artist",
+            joinColumns = @JoinColumn(name = "album_id"),
+            inverseJoinColumns = @JoinColumn(name = "artist_id")
+    )
+    private Set<Artist> artists;
+
+    /**
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
+
+    @OneToMany(mappedBy = "album")
+    private List<Track> tracks;
+*/
 
 
     public Album() {
     }
 
-    public Album(String title, String artist, String genre, Date releaseDate) {
+    public Album(String title, Set<Artist> artists) {
         this.title = title;
-        Artist = artist;
-        this.genre = genre;
-        this.releaseDate = releaseDate;
+        this.artists = artists;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -54,27 +56,11 @@ public class Album {
         this.title = title;
     }
 
-    public String getArtist() {
-        return Artist;
+    public Set<Artist> getArtists() {
+        return artists;
     }
 
-    public void setArtist(String artist) {
-        Artist = artist;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setArtists(Set<Artist> artists) {
+        this.artists = artists;
     }
 }
