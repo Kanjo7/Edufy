@@ -1,6 +1,5 @@
 package com.edufy.edufy.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -13,10 +12,9 @@ public class Track {
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "album_id")
-    @JsonBackReference
-    @JsonIgnoreProperties("tracks")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","tracks"})
     private Album album;
 
     public Track() {
