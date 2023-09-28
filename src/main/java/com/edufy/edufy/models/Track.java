@@ -1,8 +1,8 @@
 package com.edufy.edufy.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
-import java.util.Set;
 
 @Entity
 public class Track {
@@ -13,16 +13,18 @@ public class Track {
 
     private String name;
 
-    @ManyToMany(mappedBy = "tracks", fetch = FetchType.EAGER)
-    private Set<Album> albums;
-
+    @ManyToOne
+    @JoinColumn(name = "album_id")
+    @JsonBackReference
+    @JsonIgnoreProperties("tracks")
+    private Album album;
 
     public Track() {
     }
 
-    public Track(String name, Set<Album> albums) {
+    public Track(String name, Album album) {
         this.name = name;
-        this.albums = albums;
+        this.album = album;
     }
 
     public long getId() {
@@ -41,11 +43,11 @@ public class Track {
         this.name = name;
     }
 
-    public Set<Album> getAlbums() {
-        return albums;
+    public Album getAlbum() {
+        return album;
     }
 
-    public void setAlbums(Set<Album> albums) {
-        this.albums = albums;
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }

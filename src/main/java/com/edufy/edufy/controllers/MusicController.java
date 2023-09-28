@@ -22,6 +22,7 @@ public class MusicController {
     }
 
     // GET ALL MUSIC
+    @GetMapping("/getallmusic")
     public List<Music> getAllAllMusic(){
         return musicService.getAllMusic();
     }

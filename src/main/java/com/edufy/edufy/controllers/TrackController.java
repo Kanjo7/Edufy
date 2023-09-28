@@ -22,6 +22,7 @@ public class TrackController {
     }
 
     // GET ALL TRACKS
+    @GetMapping("/getalltracks")
     public List<Track> getAllAllTracks(){
         return trackService.getAllTracks();
     }

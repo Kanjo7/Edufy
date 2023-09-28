@@ -1,9 +1,10 @@
 package com.edufy.edufy.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,29 +16,14 @@ public class Album {
 
     private String title;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "album_track",
-            joinColumns = @JoinColumn(name = "album_id"),
-            inverseJoinColumns = @JoinColumn(name = "track_id")
-    )
-    private Set<Track> tracks = new HashSet<>();;
-
-    /**
-    @ManyToOne
-    @JoinColumn(name = "genre_id")
-    private Genre genre;
-
-    @OneToMany(mappedBy = "album")
-    private List<Track> tracks;
-*/
-
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Track> tracks = new ArrayList<>();
 
     public Album() {
     }
 
-    public Album(String title, Set<Track> tracks) {
-        this.title = title;
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 
@@ -57,7 +43,7 @@ public class Album {
         this.title = title;
     }
 
-    public Set<Track> getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 

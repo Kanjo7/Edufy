@@ -22,6 +22,7 @@ public class AlbumController {
     }
 
     // GET ALL ALBUMS
+    @GetMapping("/getallalbums")
     public List<Album> getAllAlbums(){
         return albumService.getAllAlbums();
     }
