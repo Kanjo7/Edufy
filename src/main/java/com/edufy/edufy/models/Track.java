@@ -13,7 +13,7 @@ public class Track {
 
     private String name;
 
-    @ManyToMany(mappedBy = "artists", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "tracks", fetch = FetchType.EAGER)
     private Set<Album> albums;
 
 

@@ -38,13 +38,13 @@ public class BootstrapData implements CommandLineRunner {
 
         // ALBUM
         Album album1 = new Album();
-        album1.setArtists(track1);
+        album1.setTracks(track1);
         album1.setTitle("Fear of the dark");
         albumRepository.save(album1);
 
         // MUSIC
         Music music = new Music();
-        music.setArtists(track1);
+        music.setTracks(track1);
         music.setAlbums(album1);
         musicRepository.save(music);
 

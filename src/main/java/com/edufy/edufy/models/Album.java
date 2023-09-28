@@ -57,11 +57,11 @@ public class Album {
         this.title = title;
     }
 
-    public Set<Track> getArtists() {
+    public Set<Track> getTracks() {
         return tracks;
     }
 
-    public void setArtists(Track track) {
+    public void setTracks(Track track) {
         this.tracks.add(track);
     }
 }

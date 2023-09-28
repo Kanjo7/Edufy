@@ -44,11 +44,11 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
         this.id = id;
     }
 
-    public Set<Track> getArtists() {
+    public Set<Track> getTracks() {
         return tracks;
     }
 
-    public void setArtists(Track track) {
+    public void setTracks(Track track) {
         this.tracks.add(track);
     }
 
