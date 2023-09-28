@@ -18,27 +18,27 @@ public class TrackService {
     }
 
     // GET ALL
-    public List<Track> getAllArtists(){
+    public List<Track> getAllTracks(){
         return trackRepository.findAll();
     }
     // GET BY ID
-    public Optional<Track> getArtistById(long id){
+    public Optional<Track> getTrackById(long id){
         return trackRepository.findById(id);
     }
 
     // SAVE
-    public Track saveArtist(Track newTrack){
+    public Track saveTrack(Track newTrack){
         return trackRepository.save(newTrack);
     }
     // UPDATE todo:  <------------------
 
     // DELETE
-    public String deleteArtist(long id){
-        Optional<Track> optionalArtist = trackRepository.findById(id);
-        if(optionalArtist.isPresent()){
+    public String deleteTrack(long id){
+        Optional<Track> optionalTrack = trackRepository.findById(id);
+        if(optionalTrack.isPresent()){
             trackRepository.deleteById(id);
-            return "Artist was deleted successfully";
+            return "Track was deleted successfully";
         }
-        return "Could not find artist with that id";
+        return "Could not find Track with that id";
     }
 }
