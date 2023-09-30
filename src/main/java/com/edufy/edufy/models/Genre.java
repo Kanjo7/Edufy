@@ -1,4 +1,4 @@
-package com.edufy.edufy;
+package com.edufy.edufy.models;
 
 
 import jakarta.persistence.*;
