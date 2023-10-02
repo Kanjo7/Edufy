@@ -1,0 +1,49 @@
+package com.edufy.edufy.services;
+
+import com.edufy.edufy.models.Album;
+import com.edufy.edufy.repositories.AlbumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class AlbumService {
+
+    @Autowired
+    private AlbumRepository albumRepository;
+
+    public AlbumService() {
+    }
+
+    // GET LIST OF ALBUMS
+    public List<Album> getAllAlbums(){
+        return albumRepository.findAll();
+    }
+
+    // FIND ALBUM BY ID
+    // TODO: CHANGE OPTIONAL LATER            <-------------------------
+    public Optional<Album> albumById(long id){
+        return albumRepository.findById(id);
+    }
+    // SAVE ALBUM
+    public Album saveAlbum(Album newAlbum){
+        return albumRepository.save(newAlbum);
+    }
+
+    // UPDATE ALBUM
+    // SKA DENNA FINNAS, KAN MAN UPDATERA ETT GAMMALT ALBUM?? ELLER SKAPAS BARA EN NY VERSION?
+
+    // DELETE ALBUM
+    // returnera String för bekräftelse av delete, (TESTNING) TODO: <--------------------------------
+    public String deleteAlbum(long id){
+        Optional<Album> optionalAlbum = albumRepository.findById(id);
+
+        if(optionalAlbum.isPresent()){
+            albumRepository.deleteById(id);
+            return "Album was deleted";
+        }
+        return "Album id does not exist.....";
+    }
+}
