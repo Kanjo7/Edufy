@@ -13,6 +13,16 @@ public class Genre {
     @Column(length = 20)
     String genre;
 
+    /*
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "albumId")
+    private Album album;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "artistId")
+    private Artist artist;
+ */
+
     public Genre() {
     }
 
