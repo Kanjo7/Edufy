@@ -36,7 +36,7 @@ public class BootstrapData implements CommandLineRunner {
 
         // SAVE TO REPOSITORIES IN CORRECT ORDER
 
-     /*   // ARTIST
+        // ARTIST
         Artist artist1 = new Artist();
         artist1.setName("Metallica");
         artistRepository.save(artist1);
@@ -64,6 +64,6 @@ public class BootstrapData implements CommandLineRunner {
         music.setGenreList(genre1);
 
         musicRepository.save(music);
-*/
+
     }
 }

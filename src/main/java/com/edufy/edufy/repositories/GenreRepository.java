@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
-
+/*
     Genre saveGenre(Genre genre);
 
     void deleteGenre(int id);
@@ -16,4 +16,6 @@ public interface GenreRepository extends JpaRepository<Genre, Integer> {
     List<Genre> getAllGenres();
 
     Genre updateGenre(Genre genre, int id);
+*/
+
 }

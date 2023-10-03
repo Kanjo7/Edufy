@@ -12,7 +12,7 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     // Artist
