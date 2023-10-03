@@ -1,16 +1,11 @@
 package com.edufy.edufy.testData;
 
-import com.edufy.edufy.models.Album;
-import com.edufy.edufy.models.Track;
-import com.edufy.edufy.models.Music;
-import com.edufy.edufy.repositories.AlbumRepository;
-import com.edufy.edufy.repositories.TrackRepository;
-import com.edufy.edufy.repositories.MusicRepository;
+import com.edufy.edufy.models.*;
+import com.edufy.edufy.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
 @Component
 public class BootstrapData implements CommandLineRunner {
@@ -24,6 +19,14 @@ public class BootstrapData implements CommandLineRunner {
     @Autowired
     private TrackRepository trackRepository;
 
+    @Autowired
+    private GenreRepository genreRepository;
+
+    @Autowired
+    private ArtistRepository artistRepository;
+
+
+
 
     public BootstrapData() {
     }
@@ -33,59 +36,34 @@ public class BootstrapData implements CommandLineRunner {
 
         // SAVE TO REPOSITORIES IN CORRECT ORDER
 
-
-        // ALBUM
-        Album album1 = new Album();
-        album1.setTitle("Fear of the Dark");
-        albumRepository.save(album1);
+     /*   // ARTIST
+        Artist artist1 = new Artist();
+        artist1.setName("Metallica");
+        artistRepository.save(artist1);
 
         // TRACK
         Track track1 = new Track();
-        track1.setName("Chains of Misery");
-        track1.setAlbum(album1);
-
-        Track track2 = new Track();
-        track2.setName("Be Quick or Be Dead");
-        track2.setAlbum(album1);
-
-        Track track3 = new Track();
-        track3.setName("From Here to Eternity");
-        track3.setAlbum(album1);
-
+        track1.setName("Whiplash");
         trackRepository.save(track1);
-        trackRepository.save(track2);
-        trackRepository.save(track3);
+
+        // ALBUM
+        Album album1 = new Album();
+        album1.setTitle("Kill em all");
+        albumRepository.save(album1);
+
+        // GENRE
+        Genre genre1 = new Genre();
+        genre1.setGenre("Metal");
+        genreRepository.save(genre1);
 
         // MUSIC
         Music music = new Music();
-        //music.setTracks(track1);
-        //music.setAlbums(album1);
+        music.setArtistList(artist1);
+        music.setTrackList(track1);
+        music.setAlbumList(album1);
+        music.setGenreList(genre1);
+
         musicRepository.save(music);
-
-
-        album1.setTracks(track1);
-        album1.setTracks(track2);
-        album1.setTracks(track3);
-        albumRepository.save(album1);
-
-
-        /*
-        // TEST
-        track1.setName("Chains of Misery");
-        track1.setAlbum(album1);
-        track2.setName("Be Quick or Be Dead");
-        track2.setAlbum(album1);
-        track3.setName("From Here to Eternity");
-        track3.setAlbum(album1);
-        trackRepository.save(track1);
-        trackRepository.save(track2);
-        trackRepository.save(track3);
-
-        album1.setTracks(track1);
-        album1.setTracks(track2);
-        album1.setTracks(track3);
-        albumRepository.save(album1);
-
-         */
+*/
     }
 }

@@ -1,6 +1,5 @@
 package com.edufy.edufy.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,17 +11,11 @@ public class Track {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "album_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","tracks"})
-    private Album album;
-
     public Track() {
     }
 
     public Track(String name, Album album) {
         this.name = name;
-        this.album = album;
     }
 
     public long getId() {
@@ -41,11 +34,4 @@ public class Track {
         this.name = name;
     }
 
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class GenreServices implements GenreServicesInterface {
 
     @Autowired
-    GenreRepository genreRepository;
+    private GenreRepository genreRepository;
 
 
     public GenreServices(GenreRepository genreRepository) {

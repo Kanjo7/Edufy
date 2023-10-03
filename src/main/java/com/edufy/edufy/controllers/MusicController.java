@@ -21,6 +21,10 @@ public class MusicController {
     public MusicController() {
     }
 
+    // hämta ARTIST genom music
+    // hämta GENRE genom music
+    // hämta ALBUM genom music
+    // hämta TRACK genom music?????
     // GET ALL MUSIC
     @GetMapping("/getallmusic")
     public List<Music> getAllAllMusic(){
