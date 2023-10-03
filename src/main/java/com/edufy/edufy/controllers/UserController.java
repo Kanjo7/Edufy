@@ -23,7 +23,7 @@ public class UserController {
 
     // Get a users
     @GetMapping("/api/v1/users/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id")int id, @RequestBody User user){
+    public ResponseEntity<User> getUser(@PathVariable("id")long id, @RequestBody User user){
         return ResponseEntity.ok(userService.getUser(user,id));
     }
 
@@ -35,12 +35,12 @@ public class UserController {
 
     // update a user
     @PutMapping("/api/v1/updateUser/{id}")
-    public ResponseEntity<User> updatedUser(@PathVariable("id")int id, @RequestBody User user) {
+    public ResponseEntity<User> updatedUser(@PathVariable("id")long id, @RequestBody User user) {
         return ResponseEntity.ok(userService.updateUser(user, id));
     }
 
     @DeleteMapping("/api/v1/removeUser/{id}")
-    public ResponseEntity<String> removeUser(@PathVariable("id")int id){
+    public ResponseEntity<String> removeUser(@PathVariable("id")long id){
         userService.removeUser(id);
         return new ResponseEntity<String>("User has been removed", HttpStatus.OK);
     }
