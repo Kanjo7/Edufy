@@ -24,7 +24,7 @@ public class AlbumService {
 
     // FIND ALBUM BY ID
     // TODO: CHANGE OPTIONAL LATER            <-------------------------
-    public Optional<Album> albumById(long id){
+    public Optional<Album> albumById(int id){
         return albumRepository.findById(id);
     }
     // SAVE ALBUM
@@ -37,7 +37,7 @@ public class AlbumService {
 
     // DELETE ALBUM
     // returnera String för bekräftelse av delete, (TESTNING) TODO: <--------------------------------
-    public String deleteAlbum(long id){
+    public String deleteAlbum(int id){
         Optional<Album> optionalAlbum = albumRepository.findById(id);
 
         if(optionalAlbum.isPresent()){
