@@ -11,9 +11,9 @@ public interface VideoServiceInterface {
 
     List<Video> getAllVideos();
 
-    Video getVideo (long id);
+    Video getVideo (int id);
 
     Video addVideo(Video video);
 
-    void removeVideo(long id);
+    void removeVideo(int id);
 }

@@ -21,7 +21,7 @@ public class VideoService implements VideoServiceInterface {
 
     //Get a video
     @Override
-    public Video getVideo(long id) {
+    public Video getVideo(int id) {
         return videoRepository.findById(id).orElseThrow();
     }
 
@@ -33,7 +33,7 @@ public class VideoService implements VideoServiceInterface {
 
     //Remove a video
     @Override
-    public void removeVideo(long id) {
+    public void removeVideo(int id) {
         videoRepository.findById(id);
         videoRepository.deleteById(id);
 
