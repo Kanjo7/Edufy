@@ -8,3 +8,6 @@ values  ('Afsky', 'Black metal'),
 
 INSERT INTO Users (Username, name, email)
 VALUES ('Elmatoor', 'Robin Andersson', 'elmatoor@gmail.com');
+
+INSERT INTO genre (genre)
+VALUES ('Black metal');

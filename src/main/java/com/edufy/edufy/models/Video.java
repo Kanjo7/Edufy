@@ -6,24 +6,25 @@ import jakarta.persistence.*;
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "video_id", nullable = false)
+    private int id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "artist_Id")
+    @JoinColumn(name = "artist_name")
     private Artist artist;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genre_Id")
+    @JoinColumn(name = "genre_name")
     private Genre genre;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "album_Id")
+    @JoinColumn(name = "album_titel")
     private Album album;
 
     @Column
     private String RealeseDate;
 
-    public Video(long id, Artist artist, Genre genre, Album album, String realeseDate) {
+    public Video(int id, Artist artist, Genre genre, Album album, String realeseDate) {
         this.id = id;
         this.artist = artist;
         this.genre = genre;
@@ -34,11 +35,11 @@ public class Video {
     public Video() {
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
