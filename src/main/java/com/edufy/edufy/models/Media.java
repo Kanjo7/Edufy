@@ -1,2 +1,4 @@
-package com.edufy.edufy.models;public class Media {
+package com.edufy.edufy.models;
+
+public abstract class Media {
 }

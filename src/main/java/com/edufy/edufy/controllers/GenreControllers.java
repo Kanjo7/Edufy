@@ -15,6 +15,10 @@ public class GenreControllers {
     @Autowired
     private GenreServices genreServices;
 
+    public GenreControllers(GenreServices genreServices) {
+        this.genreServices = genreServices;
+    }
+
     @PostMapping("/api/v1/addgenre")
     public ResponseEntity<Genre> saveCustomer(@RequestBody Genre genre) {
 

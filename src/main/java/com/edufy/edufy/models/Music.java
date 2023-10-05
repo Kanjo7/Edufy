@@ -6,11 +6,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Music { // TODO EXTENDS MEDIA <-------------------------------
+@Table(name = "music")
+public class Music extends Media {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+
 
 
 
@@ -23,7 +26,7 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

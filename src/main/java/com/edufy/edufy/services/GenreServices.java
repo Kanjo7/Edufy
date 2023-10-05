@@ -16,9 +16,9 @@ public class GenreServices implements GenreServicesInterface {
     GenreRepository genreRepository;
 
 
-    public GenreServices(GenreRepository genreRepository) {
+/*    public GenreServices(GenreRepository genreRepository) {
         this.genreRepository = genreRepository;
-    }
+    }*/
 
     @Override
     public Genre saveGenre(Genre genre) {

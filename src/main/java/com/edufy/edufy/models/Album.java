@@ -22,15 +22,32 @@ public class Album {
      *   Track track ON album.id = track.album_id;
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String title;
+
+    @Column
+    private String genre;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Track> tracks = new ArrayList<>();
 
+
     public Album() {
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public void setTracks(List<Track> tracks) {

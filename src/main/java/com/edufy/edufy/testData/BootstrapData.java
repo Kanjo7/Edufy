@@ -1,3 +1,4 @@
+/*
 package com.edufy.edufy.testData;
 
 import com.edufy.edufy.models.Album;
@@ -67,9 +68,11 @@ public class BootstrapData implements CommandLineRunner {
         album1.setTracks(track2);
         album1.setTracks(track3);
         albumRepository.save(album1);
+*/
 
 
-        /*
+
+/*
         // TEST
         track1.setName("Chains of Misery");
         track1.setAlbum(album1);
@@ -86,6 +89,7 @@ public class BootstrapData implements CommandLineRunner {
         album1.setTracks(track3);
         albumRepository.save(album1);
 
-         */
+
     }
 }
+*/
