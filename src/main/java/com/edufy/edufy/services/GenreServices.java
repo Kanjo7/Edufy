@@ -39,7 +39,7 @@ public class GenreServices implements GenreServicesInterface {
     @Override
     public Genre updateGenre(Genre genre, int id) {
         Genre g = genreRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Genre", "id", id));
-        g.setGenre(genre.getGenre());
+        g.setGenreName(genre.getGenreName());
         genreRepository.save(g);
 
         return g;

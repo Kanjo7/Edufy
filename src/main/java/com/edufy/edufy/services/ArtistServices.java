@@ -30,10 +30,12 @@ public class ArtistServices implements ArtistServiceInterface {
         return artistRepository.findArtistByName(artistName);
     }
 
+/*
     @Override
     public List<Artist> getArtistsByGenre(String genre) {
         return artistRepository.findArtistsByGenreContainingIgnoreCase(genre);
     }
+*/
 
     @Override
     public Artist getArtistBySongName(String songName) {

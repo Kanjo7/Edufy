@@ -2,6 +2,7 @@ package com.edufy.edufy.repositories;
 
 import com.edufy.edufy.models.Album;
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,6 @@ import java.util.List;
 public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 
     Artist findArtistByName(String name);
-    List<Artist> findArtistsByGenreContainingIgnoreCase(String genre);
+/*    List<Artist> findArtistsByGenreContainingIgnoreCase(Genre genre);*/
 
 }

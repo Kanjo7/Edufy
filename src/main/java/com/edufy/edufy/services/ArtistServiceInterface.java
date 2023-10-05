@@ -21,7 +21,7 @@ public interface ArtistServiceInterface {
     Artist getArtistByName(String artistName);
 
     //get artists by genre
-    List<Artist> getArtistsByGenre(String genre);
+   /* List<Artist> getArtistsByGenre(String genre);*/
 
     //get artist by song
     Artist getArtistBySongName(String songName);

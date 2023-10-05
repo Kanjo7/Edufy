@@ -1,3 +1,4 @@
+/*
 package com.edufy.edufy.testData;
 
 import com.edufy.edufy.models.*;
@@ -67,3 +68,4 @@ public class BootstrapData implements CommandLineRunner {
 
     }
 }
+*/
