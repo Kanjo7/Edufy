@@ -17,17 +17,21 @@ public class Artist {
     @Column(name = "artist_genre")
     private String genre;
 
+    @ManyToOne
+    @JoinColumn
+    private Album album;
+
     //Constructors
 
     public Artist() {
     }
 
-    public Artist(String name, String genre) {
+    public Artist(int id, String name, String genre, Album album) {
+        this.id = id;
         this.name = name;
         this.genre = genre;
+        this.album = album;
     }
-
-
 
     public int getId() {
         return id;
@@ -51,5 +55,13 @@ public class Artist {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }

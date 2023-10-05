@@ -1,5 +1,6 @@
 package com.edufy.edufy.repositories;
 
+import com.edufy.edufy.models.Album;
 import com.edufy.edufy.models.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
