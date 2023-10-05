@@ -28,7 +28,7 @@ public class AlbumController {
     }
     // GET ALBUM BY ID todo: ResponseEntity <----------------------
     @GetMapping("/albumbyid/{id}")
-    public  Optional<Album> albumById(@PathVariable("id") long id){
+    public  Optional<Album> albumById(@PathVariable("id") int id){
         return albumService.albumById(id);
     }
 
@@ -43,7 +43,7 @@ public class AlbumController {
     // DELETE ALBUM
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
     @DeleteMapping("/deletealbum/{id}")
-    public String deleteAlbum(@PathVariable("id") long id){
+    public String deleteAlbum(@PathVariable("id") int id){
         return albumService.deleteAlbum(id);
     }
 }

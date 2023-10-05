@@ -22,7 +22,7 @@ public class TrackService {
         return trackRepository.findAll();
     }
     // GET BY ID
-    public Optional<Track> getTrackById(long id){
+    public Optional<Track> getTrackById(int id){
         return trackRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class TrackService {
     // UPDATE todo:  <------------------
 
     // DELETE
-    public String deleteTrack(long id){
+    public String deleteTrack(int id){
         Optional<Track> optionalTrack = trackRepository.findById(id);
         if(optionalTrack.isPresent()){
             trackRepository.deleteById(id);
