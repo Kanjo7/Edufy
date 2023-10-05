@@ -28,7 +28,7 @@ public class TrackController {
     }
     // GET TRACKS BY ID todo: ResponseEntity <----------------------
     @GetMapping("/tracksbyid/{id}")
-    public Optional<Track> trackById(@PathVariable("id") long id){
+    public Optional<Track> trackById(@PathVariable("id") int id){
         return trackService.getTrackById(id);
     }
 
@@ -43,7 +43,7 @@ public class TrackController {
     // DELETE TRACK
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
     @DeleteMapping("/deletetrack/{id}")
-    public String deleteTrack(@PathVariable("id") long id){
+    public String deleteTrack(@PathVariable("id") int id){
         return trackService.deleteTrack(id);
     }
 }

@@ -5,43 +5,36 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 public class Album {
 
-    /**
-     * todo: SQL för att få fram koppling mellan album och track i h2 db
-     * SELECT
-     *   album.id AS album_id,
-     *   album.title AS album_title,
-     *   track.id AS track_id,
-     *   track.name AS track_name
-     * FROM
-     *   Album album
-     * INNER JOIN
-     *   Track track ON album.id = track.album_id;
-     */
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     private String title;
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Track> tracks = new ArrayList<>();
+    @OneToMany
+    private List<Track> trackList = new ArrayList<>();
 
     public Album() {
     }
 
-    public void setTracks(List<Track> tracks) {
-        this.tracks = tracks;
+    public Album(String title) {
+        this.title = title;
+    }
+
+    public Album(String title, List<Track> trackList) {
+        this.title = title;
+        this.trackList = trackList;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,11 +46,11 @@ public class Album {
         this.title = title;
     }
 
-    public List<Track> getTracks() {
-        return tracks;
+    public List<Track> getTrackList() {
+        return trackList;
     }
 
-    public void setTracks(Track track) {
-        this.tracks.add(track);
+    public void setTrackList(List<Track> trackList) {
+        this.trackList = trackList;
     }
 }

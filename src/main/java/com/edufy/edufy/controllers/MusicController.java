@@ -21,6 +21,10 @@ public class MusicController {
     public MusicController() {
     }
 
+    // hämta ARTIST genom music
+    // hämta GENRE genom music
+    // hämta ALBUM genom music
+    // hämta TRACK genom music?????
     // GET ALL MUSIC
     @GetMapping("/getallmusic")
     public List<Music> getAllAllMusic(){
@@ -28,7 +32,7 @@ public class MusicController {
     }
     // GET MUSIC BY ID todo: ResponseEntity <----------------------
     @GetMapping("/musicbyid/{id}")
-    public Optional<Music> musicById(@PathVariable("id") long id){
+    public Optional<Music> musicById(@PathVariable("id") int id){
         return musicService.getMusicById(id);
     }
 
@@ -43,7 +47,7 @@ public class MusicController {
     // DELETE MUSIC
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
     @DeleteMapping("/deletemusic/{id}")
-    public String deleteMusic(@PathVariable("id") long id){
+    public String deleteMusic(@PathVariable("id") int id){
         return musicService.deleteMusic(id);
     }
 }

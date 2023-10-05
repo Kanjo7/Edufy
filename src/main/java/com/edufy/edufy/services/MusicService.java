@@ -22,7 +22,7 @@ public class MusicService {
         return musicRepository.findAll();
     }
     // GET BY ID
-    public Optional<Music> getMusicById(long id){
+    public Optional<Music> getMusicById(int id){
         return musicRepository.findById(id);
     }
     // SAVE
@@ -32,7 +32,7 @@ public class MusicService {
     // UPDATE todo: <--------------------------
 
     // DELETE
-    public String deleteMusic(long id){
+    public String deleteMusic(int id){
         Optional<Music> optionalMusic = musicRepository.findById(id);
         if(optionalMusic.isPresent()){
             musicRepository.deleteById(id);
