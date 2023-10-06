@@ -20,7 +20,9 @@ public class Album {
     @OneToMany
     private List<Track> trackList = new ArrayList<>();
 
-
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
     public Album() {
     }
 
@@ -57,5 +59,11 @@ public class Album {
         this.trackList.add(trackList);
     }
 
+    public Artist getArtist() {
+        return artist;
+    }
 
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
 }

@@ -11,16 +11,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/")
 public class AlbumController {
-    /**
-     * FIXA UPDATERING
-     * RESPONSEENTITIES
-     */
+
     @Autowired
     private AlbumService albumService;
 
     public AlbumController() {
     }
 
+    // GET ALBUM BY ARTIST NAME
+    @GetMapping("/albumsbyartistname")
+    public List<Album> getAlbumsByArtistName(@RequestParam String artistName) {
+        return albumService.findAlbumsByArtistName(artistName);
+    }
     // GET ALBUM BY ALBUM TITLE
     @GetMapping("/albumbyalbumtitle")
     public Album getAlbumByTitle(@RequestParam String albumTitle){

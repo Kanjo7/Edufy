@@ -2,23 +2,26 @@
 
 insert into GENRES (genre_name)
 values ('Black Metal'),
-       ('Crust Punk');
+       ('Crust Punk'),
+       ('Trash Metal');
 
 insert into ARTISTS(genre_id, artist_name)
 values  (1,'Batushka'),
         (1,'Grima'),
-        (2, 'Wolfbrigade');
+        (2, 'Wolfbrigade'),
+        (3, 'Metallica');
 
 
+
+
+
+insert into albums(artist_id, album_title)
+VALUES (1, 'Litourgiya'),
+       (2, 'Rotting Garden'),
+       (3, 'Frostbitten'),
+        (4, 'Kill em all');
 
 /*
-
-insert into albums(artist_id, title, genre)
-VALUES ('Litourgiya', 'Black Metal'),
-       ('Rotting Garden', 'Black Metal'),
-       ('Frostbitten', 'Black Metal'),
-       ('Run With the Pack', 'Crust Punk');
-
 insert into tracks(name, artist_id)
 VALUES ('Yekteniya 1'),
        ('Yekteniya 2'),

@@ -1,7 +1,9 @@
 package com.edufy.edufy.services;
 
 import com.edufy.edufy.models.Album;
+import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.repositories.AlbumRepository;
+import com.edufy.edufy.repositories.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,17 @@ public class AlbumService implements AlbumInterface{
 
     @Autowired
     private AlbumRepository albumRepository;
+    @Autowired
+    private ArtistServices artistServices;
 
     public AlbumService() {
     }
 
+    // get all albums by artist name
+    public List<Album> findAlbumsByArtistName(String artistName) {
+
+        return albumRepository.findAlbumsByArtistName(artistName);
+    }
     // Get ALBUM by title
     @Override
     public Album getAlbumByTitle(String albumTitle) {
