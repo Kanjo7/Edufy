@@ -1,4 +1,4 @@
-/*
+
 package com.edufy.edufy.testData;
 
 import com.edufy.edufy.models.*;
@@ -69,23 +69,11 @@ public class BootstrapData implements CommandLineRunner {
 
         // GENRE
         Genre genre1 = new Genre();
-        genre1.setGenre("Metal");
         genreRepository.save(genre1);
 
         // MUSIC
         Music music = new Music();
-        music.setArtistList(artist1);
-        music.setTrackList(track1);
-        music.setAlbumList(album1);
-        music.setAlbumList(album2);
-        music.setGenreList(genre1);
 
-        music.setGenreList(genre1);
-
-        // connect models with media
-
-
-        artist1.setMusicList(music);
         artistRepository.save(artist1);
 
         // SAVE MUSIC LAST
@@ -93,4 +81,4 @@ public class BootstrapData implements CommandLineRunner {
 
     }
 }
-*/
+

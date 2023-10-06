@@ -25,11 +25,7 @@ public class MusicController {
     // hämta ARTIST genom music
     // hämta GENRE genom music
     // hämta ALBUM by artist name
-    @GetMapping("/albumbyartistname")
-    public List<Album> albumByArtistName(@RequestParam String artistName){
 
-        return musicService.getAlbumsByArtist(artistName);
-    }
     // hämta TRACK genom music?????
     // GET ALL MUSIC
     @GetMapping("/getallmusic")

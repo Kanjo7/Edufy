@@ -22,7 +22,6 @@ public class Artist implements ContentCreator {
 
 
     //Constructors
-
     public Artist() {
     }
 

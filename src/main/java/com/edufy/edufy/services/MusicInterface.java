@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface MusicInterface {
 
-    // ALL Albums by Artist name
-    List<Album> getAlbumsByArtist(String artistName);
+
 
     List<Music> getAllMusic();
 

@@ -20,8 +20,6 @@ public class Album {
     @OneToMany
     private List<Track> trackList = new ArrayList<>();
 
-/*    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Artist> artists = new ArrayList<>();*/
 
     public Album() {
     }

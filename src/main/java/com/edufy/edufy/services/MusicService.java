@@ -27,36 +27,7 @@ public class MusicService implements MusicInterface{
     public MusicService() {
     }
 
-    // GET ALBUM BY ARTIST NAME
-    public List<Album> getAlbumsByArtist(String artistName) {
 
-        Artist artist = artistServices.getArtistByName(artistName);
-
-        System.out.println("Artist name: " + artist.getName() + " " + artist.getName());
-
-
-        if (artist == null) {
-            // Hantera fel
-            return Collections.emptyList();
-        }
-
-        int musicId = artist.getMusicList().get(0).getId();
-
-        Music music = musicRepository.findById(musicId).orElse(null);
-        System.out.println("music ID: " + music.getId());
-
-        if (music == null) {
-            // Hantera fel
-            return Collections.emptyList();
-        }
-
-        List<Album> albums = music.getAlbumList();
-        for (Album a : albums){
-            System.out.println(a.getTitle());
-        }
-
-        return albums;
-    }
 
     // GET ALL
     public List<Music> getAllMusic(){
