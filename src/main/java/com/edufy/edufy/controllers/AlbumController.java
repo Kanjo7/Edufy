@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1")
 public class AlbumController {
 
     @Autowired
@@ -19,8 +19,8 @@ public class AlbumController {
     }
 
     // GET ALBUM BY ARTIST NAME
-    @GetMapping("/albumsbyartistname")
-    public List<Album> getAlbumsByArtistName(@RequestParam String artistName) {
+    @GetMapping("/albumsbyartistname/{artistName}")
+    public List<Album> getAlbumsByArtistName(@PathVariable("artistName") String artistName) {
         return albumService.findAlbumsByArtistName(artistName);
     }
     // GET ALBUM BY ALBUM TITLE
