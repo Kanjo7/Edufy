@@ -1,7 +1,6 @@
 
 package com.edufy.edufy.testData;
 
-import com.edufy.edufy.models.*;
 import com.edufy.edufy.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -34,7 +33,7 @@ public class BootstrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+/*
         // SAVE TO REPOSITORIES IN CORRECT ORDER
 
         // ARTIST
@@ -78,7 +77,7 @@ public class BootstrapData implements CommandLineRunner {
 
         // SAVE MUSIC LAST
         musicRepository.save(music);
-
+*/
     }
 }
 

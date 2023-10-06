@@ -2,6 +2,8 @@ package com.edufy.edufy.repositories;
 
 import com.edufy.edufy.models.Album;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,4 +12,8 @@ import java.util.List;
 public interface AlbumRepository extends JpaRepository<Album,Integer> {
 
     Album findAlbumByTitle(String title);
+
+    @Query("SELECT a FROM Album a JOIN a.artist artist WHERE artist.name = :artistName")
+    List<Album> findAlbumsByArtistName(@Param("artistName") String artistName);
+
 }
