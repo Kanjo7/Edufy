@@ -3,9 +3,10 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
-@Table(name = "artists")
+
 @Entity
-public class Artist {
+@Table(name = "artists")
+public class Artist implements ContentCreator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "artist_id", nullable = false)
@@ -14,23 +15,21 @@ public class Artist {
     @Column(name = "artist_name")
     private String name;
 
-    @Column(name = "artist_genre")
-    private String genre;
 
     @ManyToOne
-    @JoinColumn
-    private Album album;
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
+
 
     //Constructors
 
     public Artist() {
     }
 
-    public Artist(int id, String name, String genre, Album album) {
+    public Artist(int id, String name, Genre genre) {
         this.id = id;
         this.name = name;
         this.genre = genre;
-        this.album = album;
     }
 
     public int getId() {
@@ -49,19 +48,12 @@ public class Artist {
         this.name = name;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
 }

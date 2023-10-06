@@ -3,35 +3,54 @@ package com.edufy.edufy.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Track {
+@Table(name = "tracks")
+public class Track extends Media{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    private String name;
 
     public Track() {
     }
 
-    public Track(String name, Album album) {
-        this.name = name;
+    public Track(int id, String name, Genre genre, String releaseDate, MediaType mediaType) {
+        super(id, name, genre, releaseDate, mediaType);
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public MediaType getMediaType() {
+        return super.getMediaType();
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Override
     public String getName() {
-        return name;
+        return super.getName();
     }
 
+    @Override
     public void setName(String name) {
-        this.name = name;
+        super.setName(name);
     }
 
+    @Override
+    public void setMediaType(MediaType mediaType) {
+        super.setMediaType(mediaType);
+    }
+
+    @Override
+    public Genre getGenre() {
+        return super.getGenre();
+    }
+
+    @Override
+    public void setGenre(Genre genre) {
+        super.setGenre(genre);
+    }
+
+    @Override
+    public String getReleaseDate() {
+        return super.getReleaseDate();
+    }
+
+    @Override
+    public void setReleaseDate(String releaseDate) {
+        super.setReleaseDate(releaseDate);
+    }
 }

@@ -3,86 +3,53 @@ package com.edufy.edufy.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Video {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "video_id", nullable = false)
-    private int id;
+@Table(name = "videos")
+public class Video extends Media implements ContentCreator {
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "artist_name")
-    private Artist artist;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genre_name")
-    private Genre genre;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "album_titel")
-    private Album album;
-
-    @Column
-    private String RealeseDate;
-
-    public Video(int id, Artist artist, Genre genre, Album album, String realeseDate) {
-        this.id = id;
-        this.artist = artist;
-        this.genre = genre;
-        this.album = album;
-        RealeseDate = realeseDate;
+    public Video (){
     }
 
-    public Video() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
-    }
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-
-    public String getRealeseDate() {
-        return RealeseDate;
-    }
-
-    public void setRealeseDate(String realeseDate) {
-        RealeseDate = realeseDate;
+    public Video(int id, String name, Genre genre, String releaseDate, MediaType mediaType) {
+        super(id, name, genre, releaseDate, mediaType);
     }
 
     @Override
-    public String toString() {
-        return "Video{" +
-                "id=" + id +
-                ", artist=" + artist +
-                ", genre=" + genre +
-                ", album=" + album +
-                ", RealeseDate='" + RealeseDate + '\'' +
-                '}';
+    public MediaType getMediaType() {
+        return super.getMediaType();
+    }
+
+    @Override
+    public void setMediaType(MediaType mediaType) {
+        super.setMediaType(mediaType);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public Genre getGenre() {
+        return super.getGenre();
+    }
+
+    @Override
+    public void setGenre(Genre genre) {
+        super.setGenre(genre);
+    }
+
+    @Override
+    public String getReleaseDate() {
+        return super.getReleaseDate();
+    }
+
+    @Override
+    public void setReleaseDate(String releaseDate) {
+        super.setReleaseDate(releaseDate);
     }
 }

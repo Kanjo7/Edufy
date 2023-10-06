@@ -4,14 +4,16 @@ package com.edufy.edufy.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "genres")
 public class Genre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "genre_id")
     private int id;
 
-    @Column(length = 20)
-    String genre;
+    @Column(name = "genre_name")
+    String genreName;
 
     /*
     @ManyToMany(cascade = CascadeType.ALL)
@@ -26,9 +28,9 @@ public class Genre {
     public Genre() {
     }
 
-    public Genre(int id, String genre) {
+    public Genre(int id, String genreName) {
         this.id = id;
-        this.genre = genre;
+        this.genreName = genreName;
     }
 
     public int getId() {
@@ -39,20 +41,12 @@ public class Genre {
         this.id = id;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getGenreName() {
+        return genreName;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
     }
 
-
-    @Override
-    public String toString() {
-        return "Genre{" +
-                "id=" + id +
-                ", genre='" + genre + '\'' +
-                '}';
-    }
 }

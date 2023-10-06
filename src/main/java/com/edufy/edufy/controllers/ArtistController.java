@@ -38,11 +38,11 @@ public class ArtistController {
     }
 
     //get artists by genre
-    @GetMapping("/artistbygenre/{genre}")
+/*    @GetMapping("/artistbygenre/{genre}")
     public List<Artist> artistByGenre(@PathVariable("genre") String genre){
         genre = genre.replace("-", " ");
         return artistServices.getArtistsByGenre(genre);
-    }
+    }*/
 
     //update artist
     @PutMapping("/updateartist/{id}")

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "albums")
 public class Album {
 
 
@@ -13,13 +14,14 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "album_title")
     private String title;
 
     @OneToMany
     private List<Track> trackList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Artist> artists = new ArrayList<>();
+/*    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Artist> artists = new ArrayList<>();*/
 
     public Album() {
     }
