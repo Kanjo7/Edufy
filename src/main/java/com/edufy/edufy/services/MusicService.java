@@ -1,21 +1,33 @@
 package com.edufy.edufy.services;
 
+import com.edufy.edufy.models.Album;
+import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Music;
+import com.edufy.edufy.repositories.ArtistRepository;
 import com.edufy.edufy.repositories.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MusicService {
+public class MusicService implements MusicInterface{
 
     @Autowired
     private MusicRepository musicRepository;
 
+    @Autowired
+    private AlbumService albumService;
+
+    @Autowired
+    private ArtistServices artistServices;
+
     public MusicService() {
     }
+
+
 
     // GET ALL
     public List<Music> getAllMusic(){

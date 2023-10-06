@@ -9,12 +9,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AlbumService {
+public class AlbumService implements AlbumInterface{
 
     @Autowired
     private AlbumRepository albumRepository;
 
     public AlbumService() {
+    }
+
+    // Get ALBUM by title
+    @Override
+    public Album getAlbumByTitle(String albumTitle) {
+
+        return albumRepository.findAlbumByTitle(albumTitle);
     }
 
     // GET LIST OF ALBUMS

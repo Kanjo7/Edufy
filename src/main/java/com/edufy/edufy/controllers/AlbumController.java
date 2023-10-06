@@ -21,6 +21,11 @@ public class AlbumController {
     public AlbumController() {
     }
 
+    // GET ALBUM BY ALBUM TITLE
+    @GetMapping("/albumbyalbumtitle")
+    public Album getAlbumByTitle(@RequestParam String albumTitle){
+        return albumService.getAlbumByTitle(albumTitle);
+    }
     // GET ALL ALBUMS
     @GetMapping("/getallalbums")
     public List<Album> getAllAlbums(){

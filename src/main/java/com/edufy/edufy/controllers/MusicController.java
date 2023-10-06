@@ -1,5 +1,6 @@
 package com.edufy.edufy.controllers;
 
+import com.edufy.edufy.models.Album;
 import com.edufy.edufy.models.Music;
 import com.edufy.edufy.services.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class MusicController {
 
     // hämta ARTIST genom music
     // hämta GENRE genom music
-    // hämta ALBUM genom music
+    // hämta ALBUM by artist name
+
     // hämta TRACK genom music?????
     // GET ALL MUSIC
     @GetMapping("/getallmusic")

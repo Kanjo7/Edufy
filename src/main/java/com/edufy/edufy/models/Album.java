@@ -20,8 +20,6 @@ public class Album {
     @OneToMany
     private List<Track> trackList = new ArrayList<>();
 
-/*    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Artist> artists = new ArrayList<>();*/
 
     public Album() {
     }
@@ -55,7 +53,9 @@ public class Album {
         return trackList;
     }
 
-    public void setTrackList(List<Track> trackList) {
-        this.trackList = trackList;
+    public void setTrackList(Track trackList) {
+        this.trackList.add(trackList);
     }
+
+
 }
