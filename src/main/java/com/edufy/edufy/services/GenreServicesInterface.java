@@ -16,4 +16,6 @@ public interface GenreServicesInterface {
 
     void deleteGenre(int id);
 
+    Genre findByGenre(String genre);
+
 }

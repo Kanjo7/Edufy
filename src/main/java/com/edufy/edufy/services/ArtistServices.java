@@ -1,6 +1,7 @@
 package com.edufy.edufy.services;
 
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.Genre;
 import com.edufy.edufy.repositories.ArtistRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,10 +26,8 @@ public class ArtistServices implements ArtistServiceInterface {
         return artistRepository.findById(id);
     }
 
-    @Override
-    public Artist getArtistByName(String artistName) {
-        return artistRepository.findArtistByName(artistName);
-    }
+
+
 
 /*
     @Override
@@ -65,4 +64,10 @@ public class ArtistServices implements ArtistServiceInterface {
     public void deleteArtist(int id) {
         artistRepository.deleteById(id);;
     }
+
+    @Override
+    public Artist findByArtist(String name) {
+        return artistRepository.findByArtist(name);
+    }
+
 }

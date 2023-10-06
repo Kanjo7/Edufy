@@ -32,6 +32,13 @@ public class GenreServices implements GenreServicesInterface {
     }
 
     @Override
+    public Genre findByGenre(String genre) {
+
+        return genreRepository.findByGenre(genre);
+
+    }
+
+    @Override
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
     }
