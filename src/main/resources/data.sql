@@ -13,8 +13,6 @@ values  (1,'Batushka'),
 
 
 
-
-
 insert into albums(artist_id, album_title)
 VALUES (1, 'Litourgiya'),
        (2, 'Rotting Garden'),
