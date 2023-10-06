@@ -24,8 +24,9 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
     /**
      *  Album one to one?? <---------------- Ändras
       */
-    @ManyToMany
+    @OneToMany( cascade = CascadeType.ALL)
     private List<Album> albumList = new ArrayList<>();
+
     /**
      * Track ?? one to one eller one to many? ?? ? <---------- Ändras
      */
@@ -42,7 +43,7 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
         this.trackList = trackList;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

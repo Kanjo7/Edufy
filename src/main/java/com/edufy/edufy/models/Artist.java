@@ -32,6 +32,7 @@ public class Artist {
     )
     private List<Music> musicArtistList = new ArrayList<>();
 
+
     //Constructors
 
     public Artist() {

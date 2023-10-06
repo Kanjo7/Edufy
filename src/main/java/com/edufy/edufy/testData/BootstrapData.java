@@ -81,9 +81,13 @@ public class BootstrapData implements CommandLineRunner {
 
         music.setGenreList(genre1);
 
+        // connect models with media
+
+
         artist1.setMusicList(music);
         artistRepository.save(artist1);
 
+        // SAVE MUSIC LAST
         musicRepository.save(music);
 
     }

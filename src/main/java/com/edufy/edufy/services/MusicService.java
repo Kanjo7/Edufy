@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MusicService {
+public class MusicService implements MusicInterface{
 
     @Autowired
     private MusicRepository musicRepository;
 
     @Autowired
-    private ArtistRepository artistRepository;
+    private AlbumService albumService;
 
     @Autowired
     private ArtistServices artistServices;
@@ -27,7 +27,7 @@ public class MusicService {
     public MusicService() {
     }
 
-
+    // GET ALBUM BY ARTIST NAME
     public List<Album> getAlbumsByArtist(String artistName) {
 
         Artist artist = artistServices.getArtistByName(artistName);
@@ -40,7 +40,7 @@ public class MusicService {
             return Collections.emptyList();
         }
 
-        int musicId = (int) artist.getMusicList().get(0).getId();
+        int musicId = artist.getMusicList().get(0).getId();
 
         Music music = musicRepository.findById(musicId).orElse(null);
         System.out.println("music ID: " + music.getId());
