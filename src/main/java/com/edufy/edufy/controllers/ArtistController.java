@@ -1,6 +1,7 @@
 package com.edufy.edufy.controllers;
 
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.Genre;
 import com.edufy.edufy.models.User;
 import com.edufy.edufy.services.ArtistServices;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1")
 public class ArtistController {
 
     private ArtistServices artistServices;
@@ -56,5 +57,11 @@ public class ArtistController {
         artistServices.deleteArtist(id);
     }
 
+
+    @GetMapping("searchartist/{name}")
+    public ResponseEntity<Artist> findByArtist(@PathVariable("name") String name){
+
+        return ResponseEntity.ok(artistServices.findByArtist(name));
+    }
 
 }

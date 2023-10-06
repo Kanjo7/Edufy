@@ -1,6 +1,7 @@
 package com.edufy.edufy.services;
 
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.Genre;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface ArtistServiceInterface {
     Optional<Artist> getArtistById(int id);
 
     //get artist by name
-    Artist getArtistByName(String artistName);
+    //Artist getArtistByName(String artistName);
 
     //get artists by genre
    /* List<Artist> getArtistsByGenre(String genre);*/
@@ -43,4 +44,6 @@ public interface ArtistServiceInterface {
 
     //Delete artist
     void deleteArtist(int id);
+
+    Artist findByArtist(String name);
 }
