@@ -1,10 +1,14 @@
 package com.edufy.edufy.services;
 
+import com.edufy.edufy.models.Album;
+import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Music;
+import com.edufy.edufy.repositories.ArtistRepository;
 import com.edufy.edufy.repositories.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +18,44 @@ public class MusicService {
     @Autowired
     private MusicRepository musicRepository;
 
+    @Autowired
+    private ArtistRepository artistRepository;
+
+    @Autowired
+    private ArtistServices artistServices;
+
     public MusicService() {
+    }
+
+
+    public List<Album> getAlbumsByArtist(String artistName) {
+
+        Artist artist = artistServices.getArtistByName(artistName);
+
+        System.out.println("Artist name: " + artist.getName() + " " + artist.getName());
+
+
+        if (artist == null) {
+            // Hantera fel
+            return Collections.emptyList();
+        }
+
+        int musicId = (int) artist.getMusicList().get(0).getId();
+
+        Music music = musicRepository.findById(musicId).orElse(null);
+        System.out.println("music ID: " + music.getId());
+
+        if (music == null) {
+            // Hantera fel
+            return Collections.emptyList();
+        }
+
+        List<Album> albums = music.getAlbumList();
+        for (Album a : albums){
+            System.out.println(a.getTitle());
+        }
+
+        return albums;
     }
 
     // GET ALL

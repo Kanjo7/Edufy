@@ -3,6 +3,9 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Table(name = "artists")
 @Entity
 public class Artist {
@@ -20,6 +23,14 @@ public class Artist {
     @ManyToOne
     @JoinColumn
     private Album album;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "MUSIC_ARTISTLIST",
+            joinColumns = @JoinColumn(name = "artist_id"),
+            inverseJoinColumns = @JoinColumn(name = "music_id")
+    )
+    private List<Music> musicArtistList = new ArrayList<>();
 
     //Constructors
 
@@ -63,5 +74,13 @@ public class Artist {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public List<Music> getMusicList() {
+        return musicArtistList;
+    }
+
+    public void setMusicList(Music musicList) {
+        this.musicArtistList.add(musicList);
     }
 }

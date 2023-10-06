@@ -16,20 +16,20 @@ public class Music { // TODO EXTENDS MEDIA <-------------------------------
     private int id;
 
     // Artist
-    @OneToMany
+    @ManyToMany(mappedBy = "musicArtistList", cascade = CascadeType.ALL)
     private List<Artist> artistList = new ArrayList<>();
     // Genre
-    @OneToMany
+    @ManyToMany
     private List<Genre> genreList = new ArrayList<>();
     /**
      *  Album one to one?? <---------------- Ändras
       */
-    @OneToMany
+    @ManyToMany
     private List<Album> albumList = new ArrayList<>();
     /**
      * Track ?? one to one eller one to many? ?? ? <---------- Ändras
      */
-    @OneToMany
+    @ManyToMany
     private List<Track> trackList = new ArrayList<>();
 
     public Music() {

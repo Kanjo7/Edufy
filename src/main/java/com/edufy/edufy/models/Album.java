@@ -53,7 +53,7 @@ public class Album {
         return trackList;
     }
 
-    public void setTrackList(List<Track> trackList) {
-        this.trackList = trackList;
+    public void setTrackList(Track trackList) {
+        this.trackList.add(trackList);
     }
 }
