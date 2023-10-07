@@ -15,8 +15,8 @@ public class AlbumService implements AlbumInterface{
 
     @Autowired
     private AlbumRepository albumRepository;
-    @Autowired
-    private ArtistServices artistServices;
+/*    @Autowired
+    private ArtistServices artistServices;*/
 
     public AlbumService() {
     }

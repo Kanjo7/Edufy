@@ -39,11 +39,7 @@ public class ArtistController {
     }
 
     //get artists by genre
-/*    @GetMapping("/artistbygenre/{genre}")
-    public List<Artist> artistByGenre(@PathVariable("genre") String genre){
-        genre = genre.replace("-", " ");
-        return artistServices.getArtistsByGenre(genre);
-    }*/
+
 
     //update artist
     @PutMapping("/updateartist/{id}")
@@ -58,10 +54,10 @@ public class ArtistController {
     }
 
 
-    @GetMapping("searchartist/{name}")
+/*    @GetMapping("searchartist/{name}")
     public ResponseEntity<Artist> findByArtist(@PathVariable("name") String name){
 
         return ResponseEntity.ok(artistServices.findByArtist(name));
-    }
+    }*/
 
 }

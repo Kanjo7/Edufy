@@ -6,6 +6,17 @@ import jakarta.persistence.*;
 @Table(name = "tracks")
 public class Track extends Media{
 
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
 
     public Track() {
     }

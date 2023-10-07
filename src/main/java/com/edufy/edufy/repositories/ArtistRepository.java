@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 
-    @Query("SELECT s FROM Artist s WHERE s.name =:name")
-    Artist findByArtist(@Param("name") String name);
+    /*@Query("SELECT genre FROM Artist WHERE genre.genreName =:name")*/
+/*    List<Artist> findArtistsByGenre(int id);*/
 
 }

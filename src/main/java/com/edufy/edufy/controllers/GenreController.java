@@ -41,9 +41,9 @@ public class GenreController {
     }
 
     @GetMapping("/api/v1/searchgenre/{genre}")
-    public ResponseEntity<Genre> findByGenre(@PathVariable("genre") String genre){
-
-        return ResponseEntity.ok(genreServices.findByGenre(genre));
+    public List<Genre> findByGenre(@PathVariable("genre") String genre){
+        genre = genre.replace("-", " ").replace("+", " ").replace("%", " ");
+        return genreServices.findByGenre(genre);
     }
 
 }

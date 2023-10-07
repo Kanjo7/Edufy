@@ -22,7 +22,6 @@ public interface ArtistServiceInterface {
     //Artist getArtistByName(String artistName);
 
     //get artists by genre
-   /* List<Artist> getArtistsByGenre(String genre);*/
 
     //get artist by song
     Artist getArtistBySongName(String songName);
@@ -45,5 +44,5 @@ public interface ArtistServiceInterface {
     //Delete artist
     void deleteArtist(int id);
 
-    Artist findByArtist(String name);
+ /*   Artist findByArtist(String name);*/
 }

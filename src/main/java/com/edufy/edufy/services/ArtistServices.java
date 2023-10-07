@@ -12,6 +12,7 @@ import java.util.Optional;
 public class ArtistServices implements ArtistServiceInterface {
     private ArtistRepository artistRepository;
 
+
     public ArtistServices(ArtistRepository artistRepository) {
         this.artistRepository = artistRepository;
     }
@@ -28,13 +29,6 @@ public class ArtistServices implements ArtistServiceInterface {
 
 
 
-
-/*
-    @Override
-    public List<Artist> getArtistsByGenre(String genre) {
-        return artistRepository.findArtistsByGenreContainingIgnoreCase(genre);
-    }
-*/
 
     @Override
     public Artist getArtistBySongName(String songName) {
@@ -65,9 +59,9 @@ public class ArtistServices implements ArtistServiceInterface {
         artistRepository.deleteById(id);;
     }
 
-    @Override
+/*    @Override
     public Artist findByArtist(String name) {
         return artistRepository.findByArtist(name);
-    }
+    }*/
 
 }
