@@ -17,4 +17,6 @@ public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 
     List<Artist> findArtistByNameContainingIgnoreCase(@Param("artist") String artist);
 /*    List<Artist> findArtistByGenre(int id);*/
+    List<Artist> findArtistsByGenre_Id(@Param("id") int id);
+
 }

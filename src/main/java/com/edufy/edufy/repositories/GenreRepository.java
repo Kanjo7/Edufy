@@ -1,5 +1,6 @@
 package com.edufy.edufy.repositories;
 
+import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +14,7 @@ public interface GenreRepository extends JpaRepository<Genre, Integer> {
 
     /*@Query("SELECT s FROM Genre s WHERE s.genreName =:genre")*/
     List<Genre> findByGenreNameContainingIgnoreCase(@Param("genre") String genre);
+    Genre findByGenreNameContainingIgnoreCaseOrderById(@Param("genreName") String genreName);
 
 
 }

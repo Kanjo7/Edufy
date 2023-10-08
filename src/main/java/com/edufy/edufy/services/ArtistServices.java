@@ -3,6 +3,7 @@ package com.edufy.edufy.services;
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Genre;
 import com.edufy.edufy.repositories.ArtistRepository;
+import com.edufy.edufy.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +12,12 @@ import java.util.Optional;
 @Service
 public class ArtistServices implements ArtistServiceInterface {
     private ArtistRepository artistRepository;
+    private GenreRepository genreRepository;
 
 
-    public ArtistServices(ArtistRepository artistRepository) {
+    public ArtistServices(ArtistRepository artistRepository, GenreRepository genreRepository) {
         this.artistRepository = artistRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
@@ -32,10 +35,16 @@ public class ArtistServices implements ArtistServiceInterface {
         return artistRepository.findArtistByNameContainingIgnoreCase(artist);
     }
 
-/*    @Override
+    @Override
     public List<Artist> getArtistsByGenre(int id) {
-        return artistRepository.findArtistByGenre(id);
-    }*/
+        return artistRepository.findArtistsByGenre_Id(id);
+    }
+
+    @Override
+    public List<Artist> getArtistsByGenreName(String genreName) {
+        Genre g = genreRepository.findByGenreNameContainingIgnoreCaseOrderById(genreName);
+        return artistRepository.findArtistsByGenre_Id(g.getId());
+    }
 
 
     @Override
@@ -58,4 +67,19 @@ public class ArtistServices implements ArtistServiceInterface {
     }
 
 
+    public ArtistRepository getArtistRepository() {
+        return artistRepository;
+    }
+
+    public void setArtistRepository(ArtistRepository artistRepository) {
+        this.artistRepository = artistRepository;
+    }
+
+    public GenreRepository getGenreRepository() {
+        return genreRepository;
+    }
+
+    public void setGenreRepository(GenreRepository genreRepository) {
+        this.genreRepository = genreRepository;
+    }
 }

@@ -2,6 +2,7 @@ package com.edufy.edufy.controllers;
 
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.services.ArtistServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1")
 public class ArtistController {
 
+    @Autowired
     private ArtistServices artistServices;
 
     public ArtistController(ArtistServices artistServices) {
@@ -31,18 +33,20 @@ public class ArtistController {
     }
 
     //get artists by genre-id
-/*
     @GetMapping ("/getartistsbygenre/{id}")
-    public List<Artist> getArtistsByGenreId(@PathVariable("id") int id){ return artistServices.getArtistsByGenre(id); }
-*/
 
+    public List<Artist> getArtistsByGenreId(@PathVariable("id") int id){ return artistServices.getArtistsByGenre(id); }
+
+    @GetMapping("/getartistsbygenrename/{genreName}")
+    public List<Artist> getArtistsByGenreName (@PathVariable("genreName") String genreName){
+        return artistServices.getArtistsByGenreName(genreName);
+    }
 
     //add/create artist
-    @PostMapping("/saveartist")
+    @PostMapping("/createartist")
     public Artist saveArtist(Artist newArtist){
         return artistServices.createArtist(newArtist);
     }
-
 
     //update artist
     @PutMapping("/updateartist/{id}")

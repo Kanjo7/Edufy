@@ -21,9 +21,10 @@ public interface ArtistServiceInterface {
     //get artist by name
     List<Artist> getArtistsByName(String name);
 
-/*    List<Artist> getArtistsByGenre(int id);*/
+    List<Artist> getArtistsByGenre(int id);
     // *** POSTS ***
 
+    List<Artist> getArtistsByGenreName(String genreName);
     //create artist
     Artist createArtist(Artist artistToCreate);
 
