@@ -1,8 +1,6 @@
 package com.edufy.edufy.controllers;
 
 import com.edufy.edufy.models.Artist;
-import com.edufy.edufy.models.Genre;
-import com.edufy.edufy.models.User;
 import com.edufy.edufy.services.ArtistServices;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,18 +25,23 @@ public class ArtistController {
     }
 
     //get artist by id
-    @GetMapping("/artistbyid/{id}")
+    @GetMapping("/getartistbyid/{id}")
     public Optional<Artist> artistById(@PathVariable("id") int id){
         return artistServices.getArtistById(id);
     }
+
+    //get artists by genre-id
+/*
+    @GetMapping ("/getartistsbygenre/{id}")
+    public List<Artist> getArtistsByGenreId(@PathVariable("id") int id){ return artistServices.getArtistsByGenre(id); }
+*/
+
 
     //add/create artist
     @PostMapping("/saveartist")
     public Artist saveArtist(Artist newArtist){
         return artistServices.createArtist(newArtist);
     }
-
-    //get artists by genre
 
 
     //update artist
@@ -53,11 +56,10 @@ public class ArtistController {
         artistServices.deleteArtist(id);
     }
 
-
-/*    @GetMapping("searchartist/{name}")
-    public ResponseEntity<Artist> findByArtist(@PathVariable("name") String name){
-
-        return ResponseEntity.ok(artistServices.findByArtist(name));
-    }*/
+    @GetMapping("/searchartist/{artist}")
+    public List<Artist> findByName(@PathVariable("artist") String artist){
+         artist = artist.replace("-", " ").replace("+", " ").replace("%", " ");
+        return artistServices.getArtistsByName(artist);
+    }
 
 }

@@ -19,16 +19,9 @@ public interface ArtistServiceInterface {
     Optional<Artist> getArtistById(int id);
 
     //get artist by name
-    //Artist getArtistByName(String artistName);
+    List<Artist> getArtistsByName(String name);
 
-    //get artists by genre
-
-    //get artist by song
-    Artist getArtistBySongName(String songName);
-
-    //get artist by album
-    Artist getArtistByAlbum(String albumName);
-
+/*    List<Artist> getArtistsByGenre(int id);*/
     // *** POSTS ***
 
     //create artist

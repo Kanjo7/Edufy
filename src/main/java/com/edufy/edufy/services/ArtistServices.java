@@ -27,18 +27,16 @@ public class ArtistServices implements ArtistServiceInterface {
         return artistRepository.findById(id);
     }
 
-
-
-
     @Override
-    public Artist getArtistBySongName(String songName) {
-        return null;
+    public List<Artist> getArtistsByName(String artist) {
+        return artistRepository.findArtistByNameContainingIgnoreCase(artist);
     }
 
-    @Override
-    public Artist getArtistByAlbum(String albumName) {
-        return null;
-    }
+/*    @Override
+    public List<Artist> getArtistsByGenre(int id) {
+        return artistRepository.findArtistByGenre(id);
+    }*/
+
 
     @Override
     public Artist createArtist(Artist artistToCreate) {
@@ -59,9 +57,5 @@ public class ArtistServices implements ArtistServiceInterface {
         artistRepository.deleteById(id);;
     }
 
-/*    @Override
-    public Artist findByArtist(String name) {
-        return artistRepository.findByArtist(name);
-    }*/
 
 }
