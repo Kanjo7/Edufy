@@ -32,9 +32,9 @@ public class GenreServices implements GenreServicesInterface {
     }
 
     @Override
-    public Genre findByGenre(String genre) {
+    public List<Genre> findByGenre(String genre) {
 
-        return genreRepository.findByGenre(genre);
+        return genreRepository.findByGenreNameContainingIgnoreCase(genre);
 
     }
 

@@ -19,13 +19,13 @@ public class AlbumController {
     }
 
     // GET ALBUM BY ARTIST NAME
-    @GetMapping("/albumsbyartistname/{artistName}")
+/*    @GetMapping("/albumsbyartistname/{artistName}")
     public List<Album> getAlbumsByArtistName(@PathVariable("artistName") String artistName) {
         return albumService.findAlbumsByArtistName(artistName);
-    }
+    }*/
     // GET ALBUM BY ALBUM TITLE
-    @GetMapping("/albumbyalbumtitle")
-    public Album getAlbumByTitle(@RequestParam String albumTitle){
+    @GetMapping("/albumbyalbumtitle/{albumTitle}")
+    public Album getAlbumByTitle(@PathVariable("albumTitle") String albumTitle){
         return albumService.getAlbumByTitle(albumTitle);
     }
     // GET ALL ALBUMS

@@ -19,19 +19,12 @@ public interface ArtistServiceInterface {
     Optional<Artist> getArtistById(int id);
 
     //get artist by name
-    //Artist getArtistByName(String artistName);
+    List<Artist> getArtistsByName(String name);
 
-    //get artists by genre
-   /* List<Artist> getArtistsByGenre(String genre);*/
-
-    //get artist by song
-    Artist getArtistBySongName(String songName);
-
-    //get artist by album
-    Artist getArtistByAlbum(String albumName);
-
+    List<Artist> getArtistsByGenre(int id);
     // *** POSTS ***
 
+    List<Artist> getArtistsByGenreName(String genreName);
     //create artist
     Artist createArtist(Artist artistToCreate);
 
@@ -45,5 +38,5 @@ public interface ArtistServiceInterface {
     //Delete artist
     void deleteArtist(int id);
 
-    Artist findByArtist(String name);
+ /*   Artist findByArtist(String name);*/
 }

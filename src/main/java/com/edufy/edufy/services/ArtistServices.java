@@ -3,6 +3,7 @@ package com.edufy.edufy.services;
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Genre;
 import com.edufy.edufy.repositories.ArtistRepository;
+import com.edufy.edufy.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,12 @@ import java.util.Optional;
 @Service
 public class ArtistServices implements ArtistServiceInterface {
     private ArtistRepository artistRepository;
+    private GenreRepository genreRepository;
 
-    public ArtistServices(ArtistRepository artistRepository) {
+
+    public ArtistServices(ArtistRepository artistRepository, GenreRepository genreRepository) {
         this.artistRepository = artistRepository;
+        this.genreRepository = genreRepository;
     }
 
     @Override
@@ -26,25 +30,22 @@ public class ArtistServices implements ArtistServiceInterface {
         return artistRepository.findById(id);
     }
 
-
-
-
-/*
     @Override
-    public List<Artist> getArtistsByGenre(String genre) {
-        return artistRepository.findArtistsByGenreContainingIgnoreCase(genre);
-    }
-*/
-
-    @Override
-    public Artist getArtistBySongName(String songName) {
-        return null;
+    public List<Artist> getArtistsByName(String artist) {
+        return artistRepository.findArtistByNameContainingIgnoreCase(artist);
     }
 
     @Override
-    public Artist getArtistByAlbum(String albumName) {
-        return null;
+    public List<Artist> getArtistsByGenre(int id) {
+        return artistRepository.findArtistsByGenre_Id(id);
     }
+
+    @Override
+    public List<Artist> getArtistsByGenreName(String genreName) {
+        Genre g = genreRepository.findByGenreNameContainingIgnoreCaseOrderById(genreName);
+        return artistRepository.findArtistsByGenre_Id(g.getId());
+    }
+
 
     @Override
     public Artist createArtist(Artist artistToCreate) {
@@ -65,9 +66,20 @@ public class ArtistServices implements ArtistServiceInterface {
         artistRepository.deleteById(id);;
     }
 
-    @Override
-    public Artist findByArtist(String name) {
-        return artistRepository.findByArtist(name);
+
+    public ArtistRepository getArtistRepository() {
+        return artistRepository;
     }
 
+    public void setArtistRepository(ArtistRepository artistRepository) {
+        this.artistRepository = artistRepository;
+    }
+
+    public GenreRepository getGenreRepository() {
+        return genreRepository;
+    }
+
+    public void setGenreRepository(GenreRepository genreRepository) {
+        this.genreRepository = genreRepository;
+    }
 }

@@ -15,8 +15,8 @@ public class AlbumService implements AlbumInterface{
 
     @Autowired
     private AlbumRepository albumRepository;
-    @Autowired
-    private ArtistServices artistServices;
+/*    @Autowired
+    private ArtistServices artistServices;*/
 
     public AlbumService() {
     }
@@ -30,7 +30,7 @@ public class AlbumService implements AlbumInterface{
     @Override
     public Album getAlbumByTitle(String albumTitle) {
 
-        return albumRepository.findAlbumByTitle(albumTitle);
+        return albumRepository.findAlbumByTitleContainsIgnoreCase(albumTitle);
     }
 
     // GET LIST OF ALBUMS
