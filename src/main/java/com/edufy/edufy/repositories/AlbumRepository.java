@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
 
-    Album findAlbumByTitle(String title);
+    Album findAlbumByTitleContainsIgnoreCase(@Param("albumTitle") String albumTitle);
 
     @Query("SELECT a FROM Album a JOIN a.artist artist WHERE artist.name = :artistName")
     List<Album> findAlbumsByArtistName(@Param("artistName") String artistName);

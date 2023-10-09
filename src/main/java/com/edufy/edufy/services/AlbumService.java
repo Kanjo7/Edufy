@@ -30,7 +30,7 @@ public class AlbumService implements AlbumInterface{
     @Override
     public Album getAlbumByTitle(String albumTitle) {
 
-        return albumRepository.findAlbumByTitle(albumTitle);
+        return albumRepository.findAlbumByTitleContainsIgnoreCase(albumTitle);
     }
 
     // GET LIST OF ALBUMS

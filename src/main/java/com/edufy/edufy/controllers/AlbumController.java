@@ -24,8 +24,8 @@ public class AlbumController {
         return albumService.findAlbumsByArtistName(artistName);
     }*/
     // GET ALBUM BY ALBUM TITLE
-    @GetMapping("/albumbyalbumtitle")
-    public Album getAlbumByTitle(@RequestParam String albumTitle){
+    @GetMapping("/albumbyalbumtitle/{albumTitle}")
+    public Album getAlbumByTitle(@PathVariable("albumTitle") String albumTitle){
         return albumService.getAlbumByTitle(albumTitle);
     }
     // GET ALL ALBUMS

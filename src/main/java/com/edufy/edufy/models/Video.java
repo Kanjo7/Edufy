@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "videos")
-public class Video extends Media implements ContentCreator {
+public class Video extends Media{
 
     public Video (){
     }
