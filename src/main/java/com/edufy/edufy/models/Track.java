@@ -6,8 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "tracks")
 public class Track extends Media{
 
-
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "artist_id")
     private Artist artist;
