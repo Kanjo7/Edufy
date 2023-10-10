@@ -8,9 +8,13 @@ public class Track extends Media{
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "artist_id")
     private Artist artist;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "album_id")
+    private Album album;
 
     public Artist getArtist() {
         return artist;
