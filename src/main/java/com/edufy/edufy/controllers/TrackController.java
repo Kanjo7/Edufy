@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/tracks")
 public class TrackController {
 
     @Autowired
@@ -24,18 +24,18 @@ public class TrackController {
         return trackService.getTrackByName(trackName);
     }
     // GET ALL TRACKS
-    @GetMapping("/getalltracks")
+    @GetMapping("/getall")
     public List<Track> getAllAllTracks(){
         return trackService.getAllTracks();
     }
     // GET TRACKS BY ID todo: ResponseEntity <----------------------
-    @GetMapping("/tracksbyid/{id}")
+    @GetMapping("/getbyid/{id}")
     public Optional<Track> trackById(@PathVariable("id") int id){
         return trackService.getTrackById(id);
     }
 
     // POST, CREATE/SAVE NEW TRACK
-    @PostMapping("/savetrack")
+    @PostMapping("/add")
     public Track saveTrack(Track newTrack){
         return trackService.saveTrack(newTrack);
     }
@@ -44,7 +44,7 @@ public class TrackController {
 
     // DELETE TRACK
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
-    @DeleteMapping("/deletetrack/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteTrack(@PathVariable("id") int id){
         return trackService.deleteTrack(id);
     }

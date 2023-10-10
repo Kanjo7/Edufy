@@ -10,31 +10,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/videos")
 public class VideoController {
 
     @Autowired
     private VideoService videoService;
 
     // Get all Vidoes
-    @GetMapping("/api/v1/getallvideos")
+    @GetMapping("/getall")
     private List<Video> getAllVidoes() {
         return videoService.getAllVideos();
     }
 
     // Get a Vidoe
-    @GetMapping("/api/v1/getvideo/{id}")
+    @GetMapping("getbyid/{id}")
     public Video getVideo(@PathVariable("id")int id){
         return videoService.getVideo(id);
     }
 
     // Add a new video
-    @PostMapping("/api/v1/newvideo")
+    @PostMapping("/add")
     private ResponseEntity<Video> addVideo(@RequestBody Video video){
         return new ResponseEntity<>(videoService.addVideo(video), HttpStatus.OK);
     }
 
     // remove a video
-    @DeleteMapping("/api/v1/removevideo")
+    @DeleteMapping("/delete/{id}")
     private ResponseEntity<String> removeVideo(@PathVariable("id")int id){
         videoService.removeVideo(id);
         return new ResponseEntity<String>("Video has been removed", HttpStatus.OK);

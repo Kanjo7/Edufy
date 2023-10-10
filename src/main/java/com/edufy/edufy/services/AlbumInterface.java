@@ -11,6 +11,8 @@ public interface AlbumInterface {
     List<Album> findAlbumsByArtistName(String artistName);
 
      Album findAlbumByTrackName(String trackName);
+
+     Album updateAlbum(Album album, int id);
 }
 
 
