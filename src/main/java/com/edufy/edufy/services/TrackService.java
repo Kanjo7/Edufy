@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TrackService {
+public class TrackService implements TrackInterface{
 
     @Autowired
     private TrackRepository trackRepository;
@@ -17,6 +17,11 @@ public class TrackService {
     public TrackService() {
     }
 
+    // Search Track by Name
+    @Override
+    public Track getTrackByName(String trackName) {
+        return trackRepository.findTrackByNameContainsIgnoreCase(trackName);
+    }
     // GET ALL
     public List<Track> getAllTracks(){
         return trackRepository.findAll();
@@ -41,4 +46,5 @@ public class TrackService {
         }
         return "Could not find Track with that id";
     }
+
 }

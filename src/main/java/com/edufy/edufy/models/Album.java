@@ -17,6 +17,8 @@ public class Album {
     @Column(name = "album_title")
     private String title;
 
+    @Column(name = "release_date")
+    private String releaseDate;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Track> trackList = new ArrayList<>();
@@ -66,5 +68,13 @@ public class Album {
 
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }

@@ -11,16 +11,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/")
 public class TrackController {
-    /**
-     * FIXA UPDATERING
-     * RESPONSEENTITIES
-     */
+
     @Autowired
     private TrackService trackService;
 
     public TrackController() {
     }
 
+    // search track by name
+    @GetMapping("/gettrackbyname/{trackName}")
+    public Track getTrackByName(@PathVariable("trackName") String trackName){
+        return trackService.getTrackByName(trackName);
+    }
     // GET ALL TRACKS
     @GetMapping("/getalltracks")
     public List<Track> getAllAllTracks(){

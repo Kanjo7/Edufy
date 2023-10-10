@@ -21,6 +21,12 @@ public class AlbumService implements AlbumInterface{
     public AlbumService() {
     }
 
+    // Album by Track Name
+    @Override
+    public Album findAlbumByTrackName(String trackName) {
+        return albumRepository.findAlbumByTrackName(trackName);
+    }
+
     // get all albums by artist name
     public List<Album> findAlbumsByArtistName(String artistName) {
 
