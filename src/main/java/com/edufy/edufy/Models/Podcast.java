@@ -1,4 +1,4 @@
-package com.edufy.edufy.Models;
+package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 @Entity

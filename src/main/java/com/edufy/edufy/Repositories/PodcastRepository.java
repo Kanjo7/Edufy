@@ -1,6 +1,6 @@
-package com.edufy.edufy.Repositories;
+package com.edufy.edufy.repositories;
 
-import com.edufy.edufy.Models.Podcast;
+import com.edufy.edufy.models.Podcast;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
