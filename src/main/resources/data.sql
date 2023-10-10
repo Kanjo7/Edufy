@@ -21,6 +21,7 @@ VALUES (1, 'Litourgiya'),
        (2, 'Frostbitten'),
        (3, 'Run With the Hunted');
 
+// ALBUMs with release date
 insert into albums(artist_id, album_title, release_date)
 VALUES (4, 'Kill em All','25-07-1983'),
        (4, 'Ride the Lightning ','27-07-1984');
