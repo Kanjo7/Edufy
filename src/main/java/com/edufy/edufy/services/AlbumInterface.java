@@ -9,6 +9,8 @@ public interface AlbumInterface {
     Album getAlbumByTitle(String albumTitle);
 
     List<Album> findAlbumsByArtistName(String artistName);
+
+     Album findAlbumByTrackName(String trackName);
 }
 
 

@@ -17,10 +17,13 @@ public class Album {
     @Column(name = "album_title")
     private String title;
 
-    @OneToMany
+    @Column(name = "release_date")
+    private String releaseDate;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Track> trackList = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "artist_id")
     private Artist artist;
     public Album() {
@@ -55,8 +58,8 @@ public class Album {
         return trackList;
     }
 
-    public void setTrackList(Track trackList) {
-        this.trackList.add(trackList);
+    public void setTrackList(Track track) {
+        this.trackList.add(track);
     }
 
     public Artist getArtist() {
@@ -65,5 +68,13 @@ public class Album {
 
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }
