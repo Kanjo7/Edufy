@@ -1,0 +1,14 @@
+package com.edufy.edufy.services;
+
+import com.edufy.edufy.models.Album;
+
+import java.util.List;
+
+public interface AlbumInterface {
+
+    Album getAlbumByTitle(String albumTitle);
+
+    List<Album> findAlbumsByArtistName(String artistName);
+}
+
+
