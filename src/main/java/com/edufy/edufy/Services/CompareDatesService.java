@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 public class CompareDatesService {
@@ -14,10 +15,8 @@ public class CompareDatesService {
 
     public CompareDatesService(){}
 
-    public List<Object> sortReleaseDates(List<Object> obj, String releaseDate){
-
-        compareDates.sortByDate(obj, releaseDate);
-
+    public <T> List<T> sortReleaseDates(List<T> obj, Function<T, String> dateExtractor) {
+        compareDates.sortByDate(obj, dateExtractor);
         return obj;
     }
 }
