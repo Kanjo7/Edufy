@@ -1,5 +1,6 @@
 package com.edufy.edufy.services;
 
+import com.edufy.edufy.components.CompareDates;
 import com.edufy.edufy.models.Album;
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.repositories.AlbumRepository;
@@ -18,6 +19,7 @@ public class AlbumService implements AlbumInterface{
     @Autowired
     private CompareDatesService compareDatesService;
 
+
     public AlbumService() {
     }
 
@@ -30,16 +32,10 @@ public class AlbumService implements AlbumInterface{
     // get all albums by artist name
     public List<Album> findAlbumsByArtistName(String artistName) {
         List<Album> albums = albumRepository.findAlbumsByArtistName(artistName);
+
         List<Object> albumObjects = new ArrayList<>(albums);
-        compareDatesService.sortReleaseDates(albumObjects, "releaseDate");
+        compareDatesService.sortReleaseDates(albums,Album::getReleaseDate);
 
-        albums.clear();
-
-        for (Object albumObject : albumObjects) {
-            if (albumObject instanceof Album) {
-                albums.add((Album) albumObject);
-            }
-        }
         return albums;
     }
     // Get ALBUM by title

@@ -2,29 +2,31 @@ package com.edufy.edufy.components;
 
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 @Component
 public class CompareDates {
 
-
     public CompareDates() {
     }
 
-    public <T> void sortByDate(List<T> objects, String releaseDate) {
+    public <T> void sortByDate(List<T> objects, Function<T, String> releaseDateExtractor) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        Collections.sort(objects, (obj1, obj2) -> {
+        objects.sort((obj1, obj2) -> {
             try {
-                String dateStr1 = (String) obj1.getClass().getMethod(releaseDate).invoke(obj1);
-                String dateStr2 = (String) obj2.getClass().getMethod(releaseDate).invoke(obj2);
+                String dateStr1 = releaseDateExtractor.apply(obj1);
+                String dateStr2 = releaseDateExtractor.apply(obj2);
 
                 LocalDate date1 = LocalDate.parse(dateStr1, formatter);
                 LocalDate date2 = LocalDate.parse(dateStr2, formatter);
 
+                // Sort in descending order (newest to oldest)
                 return date2.compareTo(date1);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -32,4 +34,6 @@ public class CompareDates {
             }
         });
     }
+
+
 }
