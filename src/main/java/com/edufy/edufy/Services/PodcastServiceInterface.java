@@ -1,6 +1,6 @@
-package com.edufy.edufy.Services;
+package com.edufy.edufy.services;
 
-import com.edufy.edufy.Models.Podcast;
+import com.edufy.edufy.models.Podcast;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

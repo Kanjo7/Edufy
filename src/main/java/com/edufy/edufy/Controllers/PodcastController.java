@@ -1,8 +1,8 @@
-package com.edufy.edufy.Controllers;
+package com.edufy.edufy.controllers;
 
-import com.edufy.edufy.Models.Podcast;
-import com.edufy.edufy.Repositories.PodcastRepository;
-import com.edufy.edufy.Services.PodcastService;
+import com.edufy.edufy.models.Podcast;
+import com.edufy.edufy.repositories.PodcastRepository;
+import com.edufy.edufy.services.PodcastService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,8 @@ public class PodcastController {
     @Autowired
     private PodcastRepository podcastRepository;
 
+    public PodcastController() {
+    }
 
     @PostMapping("/savePodcast")
     public ResponseEntity<Podcast> savePodcast(@RequestBody Podcast podcast){

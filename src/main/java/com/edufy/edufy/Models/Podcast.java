@@ -1,9 +1,76 @@
 package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
+import com.edufy.edufy.models.Media;
 @Entity
 @Table(name = "Podcasts")
-public class Podcast {
+public class Podcast extends Media {
+
+    @ManyToOne(targetEntity = Artist.class)
+    @JoinColumn(name = "artist_id")
+    private ContentCreator artist;
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public Podcast (){
+    }
+
+    public Podcast(int id, String name, Genre genre, String releaseDate, MediaType mediaType, ContentCreator artist) {
+        super(id, name, genre, releaseDate, mediaType);
+        this.artist = artist;
+    }
+
+    @Override
+    public MediaType getMediaType() {
+        return super.getMediaType();
+    }
+
+    @Override
+    public void setMediaType(MediaType mediaType) {
+        super.setMediaType(mediaType);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public Genre getGenre() {
+        return super.getGenre();
+    }
+
+    @Override
+    public void setGenre(Genre genre) {
+        super.setGenre(genre);
+    }
+
+    public ContentCreator getArtist() {
+        return artist;
+    }
+
+    public void setArtist(ContentCreator artist) {
+        this.artist = artist;
+    }
+
+    @Override
+    public String getReleaseDate() {
+        return super.getReleaseDate();
+    }
+
+    @Override
+    public void setReleaseDate(String releaseDate) {
+        super.setReleaseDate(releaseDate);
+    }
+
+    /*
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
@@ -22,7 +89,7 @@ public class Podcast {
     private Artist artist; */
 
 
-        public Podcast(int id, String title, String duration, String genre) {
+    /*    public Podcast(int id, String title, String duration, String genre) {
             this.id = id;
             this.title = title;
             this.duration = duration;
@@ -62,5 +129,5 @@ public class Podcast {
 
         public void setGenre(String genre) {
             this.genre = genre;
-        }
+        } */
     }
