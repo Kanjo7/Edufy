@@ -31,12 +31,12 @@ public class AlbumService implements AlbumInterface{
 
     // get all albums by artist name
     public List<Album> findAlbumsByArtistName(String artistName) {
-        List<Album> albums = albumRepository.findAlbumsByArtistName(artistName);
 
-       // List<Object> albumObjects = new ArrayList<>(albums);
-        compareDatesService.sortReleaseDates(albums,Album::getReleaseDate);
 
-        return albums;
+        return  compareDatesService.sortReleaseDates(
+                albumRepository.findAlbumsByArtistName(artistName),
+                Album::getReleaseDate);
+
     }
     // Get ALBUM by title
     @Override

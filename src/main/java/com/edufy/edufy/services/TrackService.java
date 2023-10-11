@@ -28,11 +28,10 @@ public class TrackService implements TrackInterface{
     // GET ALL
     public List<Track> getAllTracks(){
 
-        //return trackRepository.findAll();
+        return trackRepository.findAll();
         // TODO sort tracks, TEST
-        List<Track> trackList = trackRepository.findAll();
-        compareDatesService.sortReleaseDates(trackList,Track::getReleaseDate);
-        return trackList;
+      //  return compareDatesService.sortReleaseDates(trackRepository.findAll(),Track::getReleaseDate);
+
     }
     // GET BY ID
     public Optional<Track> getTrackById(int id){
