@@ -33,7 +33,7 @@ public class AlbumService implements AlbumInterface{
     public List<Album> findAlbumsByArtistName(String artistName) {
         List<Album> albums = albumRepository.findAlbumsByArtistName(artistName);
 
-        List<Object> albumObjects = new ArrayList<>(albums);
+       // List<Object> albumObjects = new ArrayList<>(albums);
         compareDatesService.sortReleaseDates(albums,Album::getReleaseDate);
 
         return albums;
