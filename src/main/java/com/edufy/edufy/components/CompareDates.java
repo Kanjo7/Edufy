@@ -22,10 +22,6 @@ public class CompareDates {
                 String dateStr1 = releaseDateExtractor.apply(obj1);
                 String dateStr2 = releaseDateExtractor.apply(obj2);
 
-                // Add "0" before single-digit day and month values
-                dateStr1 = dateStr1.replaceAll("(?<=\\d)\\b(?=\\d)", "0");
-                dateStr2 = dateStr2.replaceAll("(?<=\\d)\\b(?=\\d)", "0");
-
                 LocalDate date1 = LocalDate.parse(dateStr1, formatter);
                 LocalDate date2 = LocalDate.parse(dateStr2, formatter);
                 return date2.compareTo(date1);
