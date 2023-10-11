@@ -48,5 +48,17 @@ public class TrackController {
     public String deleteTrack(@PathVariable("id") int id){
         return trackService.deleteTrack(id);
     }
+
+    @GetMapping("/bygenre/{genreName}")
+    public List<Track> findTrackByGenre(@PathVariable("genreName")String genreName){
+        genreName = genreName.replace("-", " ").replace("+", " ").replace("%", " ");
+        return trackService.findTrackByGenre(genreName);
+    }
+
+    @GetMapping("/byalbum/{albumName}")
+    public List<Track> findAlbumbyTrack(@PathVariable("albumName")String albumName){
+        albumName = albumName.replace("-", " ").replace("+", " ").replace("%", " ");
+        return trackService.findTrackByAlbum(albumName);
+    }
 }
 

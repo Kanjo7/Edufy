@@ -2,8 +2,10 @@ package com.edufy.edufy.services;
 
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Genre;
+import com.edufy.edufy.models.Track;
 import com.edufy.edufy.repositories.ArtistRepository;
 import com.edufy.edufy.repositories.GenreRepository;
+import com.edufy.edufy.repositories.TrackRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +15,14 @@ import java.util.Optional;
 public class ArtistServices implements ArtistServiceInterface {
     private ArtistRepository artistRepository;
     private GenreRepository genreRepository;
+    private final TrackRepository trackRepository;
 
 
-    public ArtistServices(ArtistRepository artistRepository, GenreRepository genreRepository) {
+    public ArtistServices(ArtistRepository artistRepository, GenreRepository genreRepository,
+                          TrackRepository trackRepository) {
         this.artistRepository = artistRepository;
         this.genreRepository = genreRepository;
+        this.trackRepository = trackRepository;
     }
 
     @Override
