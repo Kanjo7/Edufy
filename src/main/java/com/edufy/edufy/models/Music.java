@@ -23,8 +23,8 @@ public class Music extends Media{
     public Music() {
     }
 
-    public Music(int id, String name, Genre genre, String releaseDate, MediaType mediaType, ContentCreator artist) {
-        super(id, name, genre, releaseDate, mediaType);
+    public Music(int id, String name, Genre genre, String releaseDate, MediaType mediaType, String url, ContentCreator artist) {
+        super(id, name, genre, releaseDate, mediaType, url);
         this.artist = artist;
     }
 
@@ -74,5 +74,15 @@ public class Music extends Media{
     @Override
     public void setReleaseDate(String releaseDate) {
         super.setReleaseDate(releaseDate);
+    }
+
+    @Override
+    public String getUrl(){
+        return super.getUrl();
+    }
+
+    @Override
+    public void setUrl(String url){
+        super.setUrl(url);
     }
 }

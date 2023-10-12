@@ -9,8 +9,8 @@ public class Video extends Media{
     public Video (){
     }
 
-    public Video(int id, String name, Genre genre, String releaseDate, MediaType mediaType) {
-        super(id, name, genre, releaseDate, mediaType);
+    public Video(int id, String name, Genre genre, String releaseDate, MediaType mediaType, String url) {
+        super(id, name, genre, releaseDate, mediaType, url);
     }
 
     @Override
@@ -52,4 +52,14 @@ public class Video extends Media{
     public void setReleaseDate(String releaseDate) {
         super.setReleaseDate(releaseDate);
     }
+    @Override
+    public String getUrl(){
+        return super.getUrl();
+    }
+
+    @Override
+    public void setUrl(String url){
+        super.setUrl(url);
+    }
+
 }
