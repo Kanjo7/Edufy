@@ -1,5 +1,6 @@
 package com.edufy.edufy.services;
 
+import com.edufy.edufy.components.CompareDates;
 import com.edufy.edufy.models.Album;
 import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.repositories.AlbumRepository;
@@ -7,16 +8,17 @@ import com.edufy.edufy.repositories.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AlbumService implements AlbumInterface{
 
     @Autowired
     private AlbumRepository albumRepository;
-/*    @Autowired
-    private ArtistServices artistServices;*/
+
+    @Autowired
+    private CompareDatesService compareDatesService;
+
 
     public AlbumService() {
     }
@@ -40,7 +42,11 @@ public class AlbumService implements AlbumInterface{
     // get all albums by artist name
     public List<Album> findAlbumsByArtistName(String artistName) {
 
-        return albumRepository.findAlbumsByArtistName(artistName);
+
+        return  compareDatesService.sortReleaseDates(
+                albumRepository.findAlbumsByArtistName(artistName),
+                Album::getReleaseDate);
+
     }
     // Get ALBUM by title
     @Override
@@ -55,7 +61,6 @@ public class AlbumService implements AlbumInterface{
     }
 
     // FIND ALBUM BY ID
-    // TODO: CHANGE OPTIONAL LATER            <-------------------------
     public Optional<Album> albumById(int id){
         return albumRepository.findById(id);
     }

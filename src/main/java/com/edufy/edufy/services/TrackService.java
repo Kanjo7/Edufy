@@ -14,6 +14,9 @@ public class TrackService implements TrackInterface{
     @Autowired
     private TrackRepository trackRepository;
 
+    @Autowired
+    private CompareDatesService compareDatesService;
+
     public TrackService() {
     }
 
@@ -24,7 +27,11 @@ public class TrackService implements TrackInterface{
     }
     // GET ALL
     public List<Track> getAllTracks(){
+
         return trackRepository.findAll();
+        // TODO sort tracks, TEST
+      //  return compareDatesService.sortReleaseDates(trackRepository.findAll(),Track::getReleaseDate);
+
     }
     // GET BY ID
     public Optional<Track> getTrackById(int id){
