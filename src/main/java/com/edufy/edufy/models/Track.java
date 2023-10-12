@@ -6,15 +6,18 @@ import jakarta.persistence.*;
 @Table(name = "tracks")
 public class Track extends Media{
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "artist_id")
-    private Artist artist;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "album_id")
     private Album album;
 
-    public Artist getArtist() {
+    @ManyToOne(targetEntity = Artist.class)
+    @JoinColumn(name = "artist_id")
+    private ContentCreator artist;
+
+
+    public ContentCreator getArtist() {
         return artist;
     }
 
