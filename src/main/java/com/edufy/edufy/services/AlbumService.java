@@ -27,6 +27,16 @@ public class AlbumService implements AlbumInterface{
         return albumRepository.findAlbumByTrackName(trackName);
     }
 
+    @Override
+    public Album updateAlbum(Album album, int id) {
+        Album a = albumRepository.findById(id).orElseThrow();
+        a.setArtist(a.getArtist());
+        a.setTitle(a.getTitle());
+        a.setReleaseDate(a.getReleaseDate());
+        albumRepository.save(a);
+        return a;
+    }
+
     // get all albums by artist name
     public List<Album> findAlbumsByArtistName(String artistName) {
 
@@ -68,4 +78,5 @@ public class AlbumService implements AlbumInterface{
         }
         return "Album id does not exist.....";
     }
+
 }

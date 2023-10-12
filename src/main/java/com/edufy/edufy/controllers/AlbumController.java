@@ -1,19 +1,23 @@
 package com.edufy.edufy.controllers;
 
 import com.edufy.edufy.models.Album;
+import com.edufy.edufy.repositories.AlbumRepository;
 import com.edufy.edufy.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/albums")
 public class AlbumController {
 
     @Autowired
     private AlbumService albumService;
+    @Autowired
+    private AlbumRepository albumRepository;
 
     public AlbumController() {
     }
@@ -29,23 +33,23 @@ public class AlbumController {
         return albumService.findAlbumsByArtistName(artistName);
     }
     // GET ALBUM BY ALBUM TITLE
-    @GetMapping("/albumbyalbumtitle/{albumTitle}")
+    @GetMapping("/searchbyname/{albumTitle}")
     public Album getAlbumByTitle(@PathVariable("albumTitle") String albumTitle){
         return albumService.getAlbumByTitle(albumTitle);
     }
     // GET ALL ALBUMS
-    @GetMapping("/getallalbums")
+    @GetMapping("/getall")
     public List<Album> getAllAlbums(){
         return albumService.getAllAlbums();
     }
     // GET ALBUM BY ID todo: ResponseEntity <----------------------
-    @GetMapping("/albumbyid/{id}")
+    @GetMapping("/getbyid/{id}")
     public  Optional<Album> albumById(@PathVariable("id") int id){
         return albumService.albumById(id);
     }
 
     // POST, CREATE/SAVE NEW ALBUM
-    @PostMapping("/savealbum")
+    @PostMapping("/add")
     public Album saveAlbum(Album newAlbum){
         return albumService.saveAlbum(newAlbum);
     }
@@ -54,8 +58,13 @@ public class AlbumController {
 
     // DELETE ALBUM
     // returnerar en sträng som bekräftelse todo: kan ändras <-----------
-    @DeleteMapping("/deletealbum/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteAlbum(@PathVariable("id") int id){
         return albumService.deleteAlbum(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Album> updateAlbum(@PathVariable("id") int id, @RequestBody Album album){
+        return ResponseEntity.ok(albumService.updateAlbum(album, id));
     }
 }

@@ -11,36 +11,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/genres")
 public class GenreController {
 
     @Autowired
     private GenreServices genreServices;
 
-    @PostMapping("/api/v1/addgenre")
+    @PostMapping("/add")
     public ResponseEntity<Genre> saveCustomer(@RequestBody Genre genre) {
 
         return new ResponseEntity<>(genreServices.saveGenre(genre), HttpStatus.CREATED);
     }
 
-    @GetMapping("/api/v1/genres")
+    @GetMapping("/getall")
     public List<Genre> getAllGenres() {
         return genreServices.getAllGenres();
     }
 
-    @PutMapping("/api/v1/updategenre")
+    @PutMapping("/update")
     public ResponseEntity<Genre> updateGenre(@PathVariable("id") int id, @RequestBody Genre genre) {
 
         return ResponseEntity.ok(genreServices.updateGenre(genre, id));
     }
 
-    @DeleteMapping("/api/v1/deletecustomer/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteGenre(@PathVariable("id") int id) {
         genreServices.deleteGenre(id);
 
         return new ResponseEntity<String>("Genre deleted!", HttpStatus.OK);
     }
 
-    @GetMapping("/api/v1/searchgenre/{genre}")
+    @GetMapping("/searchbyname/{genre}")
     public List<Genre> findByGenre(@PathVariable("genre") String genre){
         genre = genre.replace("-", " ").replace("+", " ").replace("%", " ");
         return genreServices.findByGenre(genre);

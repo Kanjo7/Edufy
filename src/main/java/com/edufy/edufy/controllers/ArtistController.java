@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/artists")
 public class ArtistController {
 
     @Autowired
@@ -21,13 +21,13 @@ public class ArtistController {
     }
 
     //get all artists
-    @GetMapping("/getallartists")
+    @GetMapping("/getall")
     public List<Artist> getAllAllArtists(){
         return artistServices.getAllArtists();
     }
 
     //get artist by id
-    @GetMapping("/getartistbyid/{id}")
+    @GetMapping("/getbyid/{id}")
     public Optional<Artist> artistById(@PathVariable("id") int id){
         return artistServices.getArtistById(id);
     }
@@ -37,30 +37,30 @@ public class ArtistController {
 
     public List<Artist> getArtistsByGenreId(@PathVariable("id") int id){ return artistServices.getArtistsByGenre(id); }
 
-    @GetMapping("/getartistsbygenrename/{genreName}")
+    @GetMapping("/bygenre/{genreName}")
     public List<Artist> getArtistsByGenreName (@PathVariable("genreName") String genreName){
         return artistServices.getArtistsByGenreName(genreName);
     }
 
     //add/create artist
-    @PostMapping("/createartist")
+    @PostMapping("/add")
     public Artist saveArtist(Artist newArtist){
         return artistServices.createArtist(newArtist);
     }
 
     //update artist
-    @PutMapping("/updateartist/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Artist> updateArtist(@PathVariable("id")int id, @RequestBody Artist artist) {
         return ResponseEntity.ok(artistServices.updateArtist(artist, id));
     }
     //delete artist
 
-    @DeleteMapping("/deleteartist/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteArtist(@PathVariable("id") int id){
         artistServices.deleteArtist(id);
     }
 
-    @GetMapping("/searchartist/{artist}")
+    @GetMapping("/searchbyname/{artist}")
     public List<Artist> findByName(@PathVariable("artist") String artist){
          artist = artist.replace("-", " ").replace("+", " ").replace("%", " ");
         return artistServices.getArtistsByName(artist);

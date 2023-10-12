@@ -47,4 +47,12 @@ public class TrackService implements TrackInterface{
         return "Could not find Track with that id";
     }
 
+    public List<Track> findTrackByGenre(String genreName){
+        return trackRepository.findTrackByGenreContainingIgnoreCase(genreName);
+    }
+
+    public List<Track> findTrackByAlbum(String albumName){
+        return trackRepository.findTrackByAlbumContainingIgnoreCase(albumName);
+    }
+
 }
