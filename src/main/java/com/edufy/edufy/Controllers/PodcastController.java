@@ -17,6 +17,8 @@ public class PodcastController {
     @Autowired
     private PodcastRepository podcastRepository;
 
+    public PodcastController() {
+    }
 
     @PostMapping("/add")
     public ResponseEntity<Podcast> savePodcast(@RequestBody Podcast podcast){
