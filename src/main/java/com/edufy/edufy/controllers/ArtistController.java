@@ -71,10 +71,10 @@ public class ArtistController {
         return artistServices.getArtistsByName(artist);
     }
 
-    @GetMapping("/bytrack/{trackName}")
-    public List<Artist> findArtistByTrack(@PathVariable("trackName")String trackName){
-        trackName = trackName.replace("-", " ").replace("+", " ").replace("%", " ");
-        return trackService.getArtistByTrack(trackName);
+    @GetMapping("/bytrack/{artistName}")
+    public List<Track> findTrackByArtist(@PathVariable("artistName")String artistName){
+        artistName = artistName.replace("-", " ").replace("+", " ").replace("%", " ");
+        return trackService.getArtistByTrack(artistName);
     }
 
 
