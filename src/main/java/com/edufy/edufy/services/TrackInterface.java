@@ -11,5 +11,5 @@ public interface TrackInterface {
 
     Track updateTracks(Track track, int id);
 
-    List<Track> getArtistByTrack(String artistName);
+    List<Track> getTrackByArtist(String artistName);
 }
