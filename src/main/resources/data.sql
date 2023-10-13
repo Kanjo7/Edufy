@@ -29,43 +29,44 @@ VALUES (4, 'Kill em All','25-07-1983'),
 -- RELEASE DATE MUST BE [ 'dd-MM-yyyy' ] SINGLE DIGITS MUST HAVE A ZERO BEFORE THEM <---------------
 
 insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
-VALUES (1, 1, 1, 'Yekteniya 1', '04-12-2015', 1,'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 2', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 3', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 4', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 5', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 6', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 7', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh'),
-       (1, 1, 1,'Yekteniya 8', '04-12-2015', 1, 'https://youtu.be/XCMNqKuuFC4?si=t3vyUAjqayR4p8gh');
+VALUES (1, 1, 1, 'Yekteniya 1', '04-12-2015', 1,'https://open.spotify.com/track/1cQXDosKkPHAZVi7YWYX15'),
+       (1, 1, 1,'Yekteniya 2', '04-12-2015', 1, 'https://open.spotify.com/track/3V8k7s6ORTUFYJD7hKRg9O'),
+       (1, 1, 1,'Yekteniya 3', '04-12-2015', 1, 'https://open.spotify.com/track/0cxwhfboz5lX2rcxOqzPyb'),
+       (1, 1, 1,'Yekteniya 4', '04-12-2015', 1, 'https://open.spotify.com/track/56XB0noQfCYgSyREol4zDg'),
+       (1, 1, 1,'Yekteniya 5', '04-12-2015', 1, 'https://open.spotify.com/track/5IuXQQ3qGtKesuMCGpnx3Q'),
+       (1, 1, 1,'Yekteniya 6', '04-12-2015', 1, 'https://open.spotify.com/track/2OTHuzzpXnTXnAXJBtr0p5'),
+       (1, 1, 1,'Yekteniya 7', '04-12-2015', 1, 'https://open.spotify.com/track/3QdqzaUxlN0aHCuWDh54hR'),
+       (1, 1, 1,'Yekteniya 8', '04-12-2015', 1, 'https://open.spotify.com/track/7klYBHuZV8gmqiUkMBYwcR');
+
+insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES (2, 1, 1, 'Cedar and Owls', '22-01-2021',2,'https://open.spotify.com/track/5kDsoNpjCXcDoDvu9jkGid' ),
+       (2, 1, 1, 'Mourning Comes at Sunset', '22-01-2021',2,'https://open.spotify.com/track/2eUstamuLvpnYJjYv9Vzyn'),
+       (2, 1, 1, 'At the Foot of the Red Mountains', '22-01-2021',2,'https://open.spotify.com/track/7DdW2o2X5OBYXAwtBJeBQg'),
+       (2, 1, 1, 'Old Oak', '22-01-2021',2,'https://open.spotify.com/track/0JkmQDtM0q8yQvvcm6ZqQN'),
+       (2, 1, 1, 'Rotting Garden', '22-01-2021',2, 'https://open.spotify.com/track/3tQAktvLTw9tfG9uPV3Wgs'),
+       (2, 1, 1, 'Grom', '22-01-2021',2,'https://open.spotify.com/track/2WdktvMa7HDR6sJCVPiW0c'),
+       (2, 1, 1, 'Devotion to Lord', '22-01-2021',2,'https://open.spotify.com/track/4nKqHHswQifdB1K9trYMsa'),
+       (2, 1, 1, 'Gloomy Heart of the Coldest Land', '29-07-2022',2,'https://open.spotify.com/track/6kC20ciWqv0SpLr0jTXV72'),
+       (2, 1, 1, 'Giants Eternal Sleep', '29-07-2022',2,'https://open.spotify.com/track/2Mhd8Ykd4q3oujIDcYXyQd'),
+       (2, 1, 1, 'Into the Twilight', '29-07-2022',2,'https://open.spotify.com/track/3GBxz8dCi3h9iRVb9kZEbA'),
+       (2, 1, 1, 'Hunger God', '29-07-2022',2,'https://open.spotify.com/track/0DVMj3BKQomgyplcmEaiXA'),
+       (2, 1, 1, 'Moonspell and Grief','29-07-2022',2,'https://open.spotify.com/track/5vB7TocXozkSbabQuvCvaU'),
+       (2, 1, 1, 'Winter Morning Tower','29-07-2022',2,'https://open.spotify.com/track/5Ii1aGR6VhtfDp5FlOHGPH'),
+       (2, 1, 1, 'Mana', '29-07-2022',2,'https://open.spotify.com/track/0K9Qtu4xQCLVexxofj0EsO');
+
+insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES  (3, 2, 1, 'Nomad Pack', '28-04-2017',3,'https://open.spotify.com/track/79CTFuuz3ZgsPtXmWuxxMG'),
+        (3, 2, 1, 'Warsaw Speedwolf', '28-04-2017',3,'https://open.spotify.com/track/6M3DAZWL6ANSzHGUG9DowU'),
+        (3, 2, 1, 'Lucid Monomania', '28-04-2017',3,'https://open.spotify.com/track/6fRIpM6jfiJ5RtkewftkRA'),
+        (3, 2, 1, 'No Reward', '28-04-2017',3,'https://open.spotify.com/track/1ZH7duVv9WtH1OPI2Se1R1'),
+        (3, 2, 1, 'Kallocain', '28-04-2017',3,'https://open.spotify.com/track/1EZ455jzHbIqFMoR8Y2P0v'),
+        (3, 2, 1, 'Return to None', '28-04-2017',3,'https://open.spotify.com/track/6NkFqoRNQg1U7xjCuOtacs'),
+        (3, 2, 1, 'War on Rules', '28-04-2017',3,'https://open.spotify.com/track/0oVYdZmafAy9vaNWSetEtG'),
+        (3, 2, 1, 'Feral Blood', '28-04-2017',3,'https://open.spotify.com/track/2kR8GSj13WpFB1TjKcAO5W'),
+        (3, 2, 1, 'Under the Bell', '28-04-2017',3,'https://open.spotify.com/track/5NXQLAhhkEuW7bqpfwm1Y8'),
+        (3, 2, 1, 'Dead Cold', '28-04-2017',3,'https://open.spotify.com/track/3GysYt9oJo9jCncbFM6iuV');
+
 /*
-insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
-VALUES (2, 1, 1, 'Cedar and Owls', '22-01-2021',2),
-       (2, 1, 1, 'Mourning Comes at Sunset', '22-01-2021',2),
-       (2, 1, 1, 'At the Foot of the Red Mountains', '22-01-2021',2),
-       (2, 1, 1, 'Old Oak', '22-01-2021',2),
-       (2, 1, 1, 'Rotting Garden', '22-01-2021',2),
-       (2, 1, 1, 'Grom', '22-01-2021',2),
-       (2, 1, 1, 'Devotion to Lord', '22-01-2021',2),
-       (2, 1, 1, 'Gloomy Heart of the Coldest Land', '29-07-2022',2),
-       (2, 1, 1, 'Giants Eternal Sleep', '29-07-2022',2),
-       (2, 1, 1, 'Into the Twilight', '29-07-2022',2),
-       (2, 1, 1, 'Hunger God', '29-07-2022',2),
-       (2, 1, 1, 'Moonspell and Grief', '29-07-2022',2),
-       (2, 1, 1, 'Winter Morning Tower', '29-07-2022',2),
-       (2, 1, 1, 'Mana', '29-07-2022',2);
-
-insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
-VALUES  (3, 2, 1, 'Nomad Pack', '28-04-2017',3),
-        (3, 2, 1, 'Warsaw Speedwolf', '28-04-2017',3),
-        (3, 2, 1, 'Lucid Monomania', '28-04-2017',3),
-        (3, 2, 1, 'No Reward', '28-04-2017',3),
-        (3, 2, 1, 'Kallocain', '28-04-2017',3),
-        (3, 2, 1, 'Return to None', '28-04-2017',3),
-        (3, 2, 1, 'War on Rules', '28-04-2017',3),
-        (3, 2, 1, 'Feral Blood', '28-04-2017',3),
-        (3, 2, 1, 'Under the Bell', '28-04-2017',3),
-        (3, 2, 1, 'Dead Cold', '28-04-2017',3);
-
 insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
 VALUES (4, 3, 1, 'Hit the Lights', '25-07-1983', 5),
        (4, 3, 1,'The Four Horsemen', '25-07-1983', 5),
@@ -90,7 +91,4 @@ VALUES (4, 3, 1, 'Fight Fire With Fire', '27-07-1984', 6),
 
 -- (artist_id integer, genre_id integer, id integer generated by default as identity, media_type_id integer, media_name varchar(255), release_date varchar(255),
 
-
-
  */
-
