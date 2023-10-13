@@ -1,7 +1,9 @@
 package com.edufy.edufy.controllers;
 
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.Track;
 import com.edufy.edufy.services.ArtistServices;
+import com.edufy.edufy.services.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,9 @@ public class ArtistController {
 
     @Autowired
     private ArtistServices artistServices;
+
+    @Autowired
+    private TrackService trackService;
 
     public ArtistController(ArtistServices artistServices) {
         this.artistServices = artistServices;
@@ -65,5 +70,12 @@ public class ArtistController {
          artist = artist.replace("-", " ").replace("+", " ").replace("%", " ");
         return artistServices.getArtistsByName(artist);
     }
+
+    @GetMapping("/bytrack/{trackName}")
+    public List<Artist> findArtistByTrack(@PathVariable("trackName")String trackName){
+        trackName = trackName.replace("-", " ").replace("+", " ").replace("%", " ");
+        return trackService.getArtistByTrack(trackName);
+    }
+
 
 }

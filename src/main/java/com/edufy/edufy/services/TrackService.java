@@ -1,5 +1,6 @@
 package com.edufy.edufy.services;
 
+import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.Track;
 import com.edufy.edufy.repositories.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class TrackService implements TrackInterface{
         t.setReleaseDate(t.getReleaseDate());
         trackRepository.save(t);
         return t;
+    }
+
+    @Override
+    public List<Artist> getArtistByTrack(String trackName) {
+        return trackRepository.findTrackByArtistContainingIgnoreCase(trackName);
     }
 
     // GET ALL
