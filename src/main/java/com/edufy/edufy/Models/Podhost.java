@@ -1,35 +1,36 @@
 package com.edufy.edufy.models;
 
-
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
-@Table(name = "artists")
-public class Artist implements ContentCreator {
+@Table(name = "podhosts")
+public class Podhost implements ContentCreator{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "artist_id", nullable = false)
+    @Column(name = "podhost_id", nullable = false)
     private int id;
 
-    @Column(name = "artist_name")
+    @Column(name = "podhost_name")
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
-    //Constructors
-    public Artist() {
+    @OneToMany(mappedBy = "episodes", cascade = CascadeType.ALL)
+    private List<Episode> episodeList = new ArrayList<>();
+
+    public Podhost(){
     }
 
-    public Artist(int id, String name, Genre genre) {
+    public Podhost(int id, String name, Genre genre, List<Episode> episodeList) {
         this.id = id;
         this.name = name;
         this.genre = genre;
+        this.episodeList = episodeList;
     }
 
     public int getId() {
@@ -56,4 +57,11 @@ public class Artist implements ContentCreator {
         this.genre = genre;
     }
 
+    public List<Episode> getEpisodeList() {
+        return episodeList;
+    }
+
+    public void setEpisodeList(List<Episode> episodeList) {
+        this.episodeList = episodeList;
+    }
 }
