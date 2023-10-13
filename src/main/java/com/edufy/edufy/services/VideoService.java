@@ -38,4 +38,14 @@ public class VideoService implements VideoServiceInterface {
         videoRepository.deleteById(id);
 
     }
+
+    @Override
+    public Video getVideoByName(String videoName) {
+        return videoRepository.findVideoByNameContainingIgnoreCase(videoName);
+    }
+
+    @Override
+    public List<Video> getVideoByGenre(String genreName) {
+        return videoRepository.findVideoByGenreContainingIgnoreCase(genreName);
+    }
 }

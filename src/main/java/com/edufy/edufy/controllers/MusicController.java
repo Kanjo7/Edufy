@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/music")
 public class MusicController {
     /**
      * FIXA UPDATERING
@@ -51,5 +51,15 @@ public class MusicController {
     @DeleteMapping("/deletemusic/{id}")
     public String deleteMusic(@PathVariable("id") int id){
         return musicService.deleteMusic(id);
+    }
+
+    @GetMapping("/searchbyname/{musicName}")
+    public Music getMusicByName(@PathVariable("musicName")String musicName){
+        return musicService.getMusicByName(musicName);
+    }
+
+    @GetMapping("/bygenre/{genreName}")
+    public List<Music> getMusicByGenre(@PathVariable("genreName")String genreName){
+        return musicService.getMusicbyGenre(genreName);
     }
 }

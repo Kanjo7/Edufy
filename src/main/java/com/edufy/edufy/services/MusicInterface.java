@@ -17,5 +17,9 @@ public interface MusicInterface {
     Music saveMusic(Music newMusic);
 
     String deleteMusic(int id);
+
+    Music getMusicByName(String musicName);
+
+    List<Music> getMusicbyGenre(String genreName);
 }
 

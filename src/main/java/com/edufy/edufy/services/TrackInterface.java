@@ -5,4 +5,6 @@ import com.edufy.edufy.models.Track;
 public interface TrackInterface {
 
     Track getTrackByName(String trackName);
+
+    Track updateTracks(Track track, int id);
 }

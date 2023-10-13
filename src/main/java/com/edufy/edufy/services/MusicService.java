@@ -52,4 +52,14 @@ public class MusicService implements MusicInterface{
         }
         return "Music id does not exist...";
     }
+
+    @Override
+    public Music getMusicByName(String musicName) {
+        return musicRepository.findMusicByNameContainingIgnoreCase(musicName);
+    }
+
+    @Override
+    public List<Music> getMusicbyGenre(String genreName) {
+        return musicRepository.findMusicByGenreContainingIgnoreCase(genreName);
+    }
 }
