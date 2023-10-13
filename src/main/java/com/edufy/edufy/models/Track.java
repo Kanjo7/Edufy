@@ -25,8 +25,8 @@ public class Track extends Media{
     public Track() {
     }
 
-    public Track(int id, String name, Genre genre, String releaseDate, MediaType mediaType) {
-        super(id, name, genre, releaseDate, mediaType);
+    public Track(int id, String name, Genre genre, String releaseDate, MediaType mediaType, String url) {
+        super(id, name, genre, releaseDate, mediaType, url);
     }
 
     @Override
@@ -67,5 +67,15 @@ public class Track extends Media{
     @Override
     public void setReleaseDate(String releaseDate) {
         super.setReleaseDate(releaseDate);
+    }
+
+    @Override
+    public String getUrl(){
+        return super.getUrl();
+    }
+
+    @Override
+    public void setUrl(String url) {
+        super.setUrl(url);
     }
 }
