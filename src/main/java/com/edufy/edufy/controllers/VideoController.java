@@ -40,4 +40,14 @@ public class VideoController {
         videoService.removeVideo(id);
         return new ResponseEntity<String>("Video has been removed", HttpStatus.OK);
     }
+
+    @GetMapping("/searchbyname/{videoName}")
+    public Video getVideoByName(@PathVariable("videoName")String videoName){
+        return videoService.getVideoByName(videoName);
+    }
+
+    @GetMapping("/bygenre/{genreName}")
+    public List<Video> getVideoByGenre(@PathVariable("genreName")String genreName){
+        return videoService.getVideoByGenre(genreName);
+    }
 }

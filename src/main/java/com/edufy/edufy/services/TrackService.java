@@ -25,6 +25,19 @@ public class TrackService implements TrackInterface{
     public Track getTrackByName(String trackName) {
         return trackRepository.findTrackByNameContainsIgnoreCase(trackName);
     }
+
+    @Override
+    public Track updateTracks(Track track, int id) {
+        Track t = trackRepository.findById(id).orElseThrow();
+        t.setArtist(t.getArtist());
+        t.setGenre(t.getGenre());
+        t.setName(t.getName());
+        t.setMediaType(t.getMediaType());
+        t.setReleaseDate(t.getReleaseDate());
+        trackRepository.save(t);
+        return t;
+    }
+
     // GET ALL
     public List<Track> getAllTracks(){
 

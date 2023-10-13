@@ -16,4 +16,8 @@ public interface VideoServiceInterface {
     Video addVideo(Video video);
 
     void removeVideo(int id);
+
+    Video getVideoByName(String videoName);
+
+    List<Video> getVideoByGenre(String genreName);
 }

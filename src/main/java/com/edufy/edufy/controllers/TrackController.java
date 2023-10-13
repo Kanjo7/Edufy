@@ -3,6 +3,7 @@ package com.edufy.edufy.controllers;
 import com.edufy.edufy.models.Track;
 import com.edufy.edufy.services.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,6 +60,11 @@ public class TrackController {
     public List<Track> findAlbumbyTrack(@PathVariable("albumName")String albumName){
         albumName = albumName.replace("-", " ").replace("+", " ").replace("%", " ");
         return trackService.findTrackByAlbum(albumName);
+    }
+
+    @PutMapping("/updateTracks/{id}")
+    public ResponseEntity<Track> updateTracks(@PathVariable("id")int id, @RequestBody Track track) {
+        return ResponseEntity.ok(trackService.updateTracks(track, id));
     }
 }
 
