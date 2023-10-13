@@ -40,8 +40,8 @@ public class TrackService implements TrackInterface{
     }
 
     @Override
-    public List<Artist> getArtistByTrack(String trackName) {
-        return trackRepository.findTrackByArtistContainingIgnoreCase(trackName);
+    public List<Track> getArtistByTrack(String artistName) {
+        return trackRepository.findTrackByArtistContainingIgnoreCase(artistName);
     }
 
     // GET ALL

@@ -17,8 +17,7 @@ public interface TrackRepository extends JpaRepository<Track,Integer> {
     @Query("SELECT a FROM Track a JOIN a.album album WHERE album.title = :albumName")
     List<Track> findTrackByAlbumContainingIgnoreCase(@Param("albumName")String albumName);
 
-    @Query("SELECT a FROM Track a JOIN a.artist track WHERE track.name = :trackName")
-    List<Artist> findTrackByArtistContainingIgnoreCase(@Param("trackName")String trackName);
-
+    @Query("SELECT a FROM Track a JOIN a.artist artist WHERE artist.name = :artistName")
+    List<Track> findTrackByArtistContainingIgnoreCase(@Param("artistName")String artistName);
 
 }
