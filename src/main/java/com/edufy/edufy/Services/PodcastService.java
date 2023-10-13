@@ -11,17 +11,12 @@ public class PodcastService implements PodcastServiceInterface {
 
     @Autowired
     private PodcastRepository podcastRepository;
-
     @Autowired
     private AlbumService albumService;
-
     @Autowired
     private ArtistServices artistServices;
-
     public PodcastService() {
     }
-
-
     @Override
     public Podcast savePodcast(Podcast podcast){
         return podcastRepository.save(podcast);
