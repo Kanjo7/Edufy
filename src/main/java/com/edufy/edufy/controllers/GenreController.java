@@ -46,5 +46,4 @@ public class GenreController {
         genre = genre.replace("-", " ").replace("+", " ").replace("%", " ");
         return genreServices.findByGenre(genre);
     }
-
 }

@@ -8,3 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface PodhostRepository extends JpaRepository<Podhost, Integer> {
 
 }
+
+
