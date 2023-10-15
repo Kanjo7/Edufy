@@ -11,6 +11,8 @@ import java.util.List;
 public interface TrackRepository extends JpaRepository<Track,Integer> {
     Track findTrackByNameContainsIgnoreCase(@Param("trackName") String trackName);
 
+    Track findTrackById(@Param("trackId") int trackId);
+
     @Query("SELECT a FROM Track a JOIN a.genre genre WHERE genre.genreName = :genreName")
     List<Track> findTrackByGenreContainingIgnoreCase(@Param("genreName")String genreName);
 

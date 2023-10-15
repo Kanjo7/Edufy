@@ -25,7 +25,7 @@ public class UserService implements UserServiceInterface {
     //Get a user
     @Override
     public User getUser(User user, int id) {
-        return userRepository.findById(id).orElseThrow();
+        return userRepository.findById(id);
     }
 
     //add a user
@@ -37,7 +37,7 @@ public class UserService implements UserServiceInterface {
     //Update a user
     @Override
     public User updateUser(User user, int id) {
-        User u = userRepository.findById(id).orElseThrow();
+        User u = userRepository.findById(id);
         u.setUsername(u.getUsername());
         u.setName(u.getName());
         u.setEmail(u.getEmail());
@@ -47,7 +47,7 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public void removeUser(int id) {
-        userRepository.findById(id).orElseThrow();
+        userRepository.findById(id);
         videoRepository.deleteById(id);
     }
 }

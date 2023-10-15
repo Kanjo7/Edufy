@@ -1,12 +1,14 @@
 package com.edufy.edufy.repositories;
 
-import com.edufy.edufy.models.User;
+import com.edufy.edufy.models.LikedMedia;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+import java.util.List;
 
-    User findById(@Param("userId") int userid);
+@Repository
+public interface LikedMediaRepository extends JpaRepository<LikedMedia, Integer> {
+
+    List<LikedMedia> findLikedMediaByUser_Id(@Param("userId") int id);
 }

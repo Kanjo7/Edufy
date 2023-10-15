@@ -22,7 +22,7 @@ public class VideoService implements VideoServiceInterface {
     //Get a video
     @Override
     public Video getVideo(int id) {
-        return videoRepository.findById(id).orElseThrow();
+        return videoRepository.findById(id);
     }
 
     //Add a video

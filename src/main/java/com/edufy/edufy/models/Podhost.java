@@ -21,18 +21,18 @@ public class Podhost implements ContentCreator{
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
-    @OneToMany(mappedBy = "episodes", cascade = CascadeType.ALL)
-    private List<Episode> episodeList = new ArrayList<>();
+/*    @OneToMany(mappedBy = "episodes", cascade = CascadeType.ALL)
+    private List<Episode> episodeList = new ArrayList<>();*/
 
     public Podhost(){
     }
-
+/*
     public Podhost(int id, String name, Genre genre, List<Episode> episodeList) {
         this.id = id;
         this.name = name;
         this.genre = genre;
         this.episodeList = episodeList;
-    }
+    }*/
 
     public int getId() {
         return id;
@@ -58,11 +58,11 @@ public class Podhost implements ContentCreator{
         this.genre = genre;
     }
 
-    public List<Episode> getEpisodeList() {
+/*    public List<Episode> getEpisodeList() {
         return episodeList;
     }
 
     public void setEpisodeList(List<Episode> episodeList) {
         this.episodeList = episodeList;
-    }
+    }*/
 }
