@@ -4,10 +4,12 @@ import com.edufy.edufy.models.Artist;
 import com.edufy.edufy.models.DislikedMedia;
 import com.edufy.edufy.models.LikedMedia;
 import com.edufy.edufy.models.UserMediaHistory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface HistoryServiceInterface {
 
     List<LikedMedia> getLikedMedia(int id);
@@ -21,22 +23,6 @@ public interface HistoryServiceInterface {
     DislikedMedia addDisliked(DislikedMedia media);
 
     UserMediaHistory addUserMediaHistory(UserMediaHistory media);
-
-/*    //get all artists (by alphabetical)
-
-    //create artist
-
-    Artist createArtist(Artist artistToCreate);
-
-    // *** PUTS ***
-
-    //update artist
-    Artist updateArtist(Artist artist, int id);
-
-    // *** DELETE ***
-
-    //Delete artist
-    void deleteArtist(int id);*/
 
 
 }
