@@ -8,14 +8,13 @@ public class Track extends Media{
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "album_id")
     private Album album;
 
     @ManyToOne(targetEntity = Artist.class)
     @JoinColumn(name = "artist_id")
     private ContentCreator artist;
-
 
     public ContentCreator getArtist() {
         return artist;
@@ -28,8 +27,10 @@ public class Track extends Media{
     public Track() {
     }
 
-    public Track(int id, String name, Genre genre, String releaseDate, MediaType mediaType) {
+    public Track(int id, String name, Genre genre, String releaseDate, MediaType mediaType, Album album, ContentCreator artist) {
         super(id, name, genre, releaseDate, mediaType);
+        this.album = album;
+        this.artist = artist;
     }
 
     @Override

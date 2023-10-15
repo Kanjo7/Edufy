@@ -16,7 +16,6 @@ public abstract class Media {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
-
     @Column(name = "release_date")
     private String releaseDate;
 

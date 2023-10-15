@@ -10,28 +10,55 @@ public abstract class History {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "genre_id")
-    private Genre genre;
-
     @ManyToOne(targetEntity = Track.class)
     @JoinColumn(name = "track_id")
     private Track track;
 
+    @ManyToOne(targetEntity = Video.class)
+    @JoinColumn(name = "video_id")
+    private Video video;
+
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public History() {
     }
 
-    public History(int id, Genre genre, ContentCreator artist) {
+    public History(int id, Track track, Video video, User user) {
         this.id = id;
-        this.genre = genre;
-        this.artist = artist;
+        this.track = track;
+        this.video = video;
+        this.user = user;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public History(int id, Track track, User user) {
+        this.id = id;
+        this.track = track;
+        this.user = user;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Track getTrack() {
+        return track;
+    }
+
+    public void setTrack(Track track) {
+        this.track = track;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

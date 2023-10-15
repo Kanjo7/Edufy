@@ -19,12 +19,10 @@ insert into albums(artist_id, album_title, release_date)
 VALUES (1, 'Litourgiya', '4-12-2015'),
        (2, 'Rotting Garden', '22-01-2021'),
        (2, 'Frostbitten', '29-7-2022'),
-       (3, 'Run With the Hunted', '28-4-2017');
-
-
-insert into albums(artist_id, album_title, release_date)
-VALUES (4, 'Kill em All','25-07-1983'),
+       (3, 'Run With the Hunted', '28-4-2017'),
+       (4, 'Kill em All','25-07-1983'),
        (4, 'Ride the Lightning ','27-07-1984');
+
 
 
 insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
@@ -36,6 +34,8 @@ VALUES (1, 1, 1, 'Yekteniya 1', '4-12-2015', 1),
        (1, 1, 1,'Yekteniya 6', '4-12-2015', 1),
        (1, 1, 1,'Yekteniya 7', '4-12-2015', 1),
        (1, 1, 1,'Yekteniya 8', '4-12-2015', 1);
+
+/*
 
 insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
 VALUES (2, 1, 1, 'Cedar and Owls', '22-01-2021',2),
@@ -87,3 +87,4 @@ VALUES (4, 3, 1, 'Fight Fire With Fire', '27-07-1984', 6),
        (4, 3, 1,'Creeping Death', '27-07-1984', 6),
        (4, 3, 1,'Call Of Ktulu', '27-07-1984', 6);
 
+*/

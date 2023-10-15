@@ -20,7 +20,7 @@ public class Album {
     @Column(name = "release_date")
     private String releaseDate;
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "album")
     private List<Track> trackList = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
