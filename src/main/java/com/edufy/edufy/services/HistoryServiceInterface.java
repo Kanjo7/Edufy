@@ -13,14 +13,28 @@ import java.util.Optional;
 public interface HistoryServiceInterface {
 
     List<LikedMedia> getLikedMedia();
+    List<LikedMedia> getLikedMediaByUser(int userid);
 
-    List<DislikedMedia> getDislikedMedia(int id);
+    List<DislikedMedia> getDislikedMedia();
 
-    List<UserMediaHistory> getMediaHistory(int id);
+    List<DislikedMedia> getDislikedMediaByUser(int userid);
 
-    LikedMedia addLiked(LikedMedia media);
 
-    DislikedMedia addDisliked(DislikedMedia media);
+    List<UserMediaHistory> getMediaHistoryByUser(int id);
+
+    List<UserMediaHistory> getAllMediaHistory();
+
+    LikedMedia addLikedTrack(int mediaId, int userId);
+
+    LikedMedia addLikedVideo(int mediaId, int userId);
+
+/*    LikedMedia addLikedPod(int mediaId, int userId);*/
+
+    DislikedMedia addDislikedTrack(int mediaId, int userId);
+
+    DislikedMedia addDislikedVideo(int mediaId, int userId);
+
+    DislikedMedia addDislikedPod(int mediaId, int userId);
 
     UserMediaHistory addMediaToHistory(int type, int mediaId, int userId);
 

@@ -32,12 +32,6 @@ public abstract class History {
         this.user = user;
     }
 
-    public History(int id, Track track, User user) {
-        this.id = id;
-        this.track = track;
-        this.user = user;
-    }
-
     public int getId() {
         return id;
     }

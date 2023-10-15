@@ -14,10 +14,6 @@ public class UserMediaHistory extends History {
     public UserMediaHistory() {
     }
 
-    public UserMediaHistory(int id, Track track, User user) {
-        super(id, track, user);
-    }
-
 
     @Override
     public int getId() {

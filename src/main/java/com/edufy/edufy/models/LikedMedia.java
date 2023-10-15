@@ -15,9 +15,6 @@ public class LikedMedia extends History {
         super(id, track, video, user);
     }
 
-    public LikedMedia(int id, Track track, User user) {
-        super(id, track, user);
-    }
 
     @Override
     public int getId() {

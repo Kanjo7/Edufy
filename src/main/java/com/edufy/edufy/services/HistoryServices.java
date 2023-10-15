@@ -33,22 +33,77 @@ MediaTypeRepository mediaTypeRepository;
     }
 
     @Override
-    public List<DislikedMedia> getDislikedMedia(int id) {
+    public List<LikedMedia> getLikedMediaByUser(int userid) {
+        return likedMediaRepository.findLikedMediaByUser_Id(userid);
+    }
+
+    @Override
+    public List<DislikedMedia> getDislikedMedia() {
         return dislikedMediaRepository.findAll();
     }
+
     @Override
-    public List<UserMediaHistory> getMediaHistory(int id) {
+    public List<DislikedMedia> getDislikedMediaByUser(int userid) {
+        return dislikedMediaRepository.findDislikedMediaByUser_Id(userid);
+    }
+
+    @Override
+    public List<UserMediaHistory> getMediaHistoryByUser(int id) {
+        return userMediaHistoryRepository.findUserMediaHistoryByUser_Id(id);
+    }
+
+    @Override
+    public List<UserMediaHistory> getAllMediaHistory() {
         return userMediaHistoryRepository.findAll();
     }
 
+
+
     @Override
-    public LikedMedia addLiked(LikedMedia media) {
-        return likedMediaRepository.save(media);
+    public LikedMedia addLikedTrack(int mediaId, int userId) {
+        LikedMedia l = new LikedMedia();
+        l.setTrack(trackRepository.findTrackById(mediaId));
+        l.setUser(userRepository.findById(userId));
+        likedMediaRepository.save(l);
+
+        return l;
     }
 
     @Override
-    public DislikedMedia addDisliked(DislikedMedia media) {
-        return dislikedMediaRepository.save(media);
+    public LikedMedia addLikedVideo(int mediaId, int userId) {
+        LikedMedia l = new LikedMedia();
+        l.setVideo(videoRepository.findById(mediaId));
+        l.setUser(userRepository.findById(userId));
+        likedMediaRepository.save(l);
+        return l;
+    }
+
+/*    @Override
+    public LikedMedia addLikedPod(int mediaId, int userId) {
+        return null;
+    }*/
+
+    @Override
+    public DislikedMedia addDislikedTrack(int mediaId, int userId) {
+        DislikedMedia d = new DislikedMedia();
+        d.setTrack(trackRepository.findTrackById(mediaId));
+        d.setUser(userRepository.findById(userId));
+        dislikedMediaRepository.save(d);
+        return d;
+    }
+
+    @Override
+    public DislikedMedia addDislikedVideo(int mediaId, int userId) {
+        DislikedMedia d = new DislikedMedia();
+        d.setVideo(videoRepository.findById(mediaId));
+        d.setUser(userRepository.findById(userId));
+        dislikedMediaRepository.save(d);
+        return d;
+    }
+
+    @Override
+    public DislikedMedia addDislikedPod(int mediaId, int userId) {
+        return null;
     }
 
     @Override
@@ -93,7 +148,6 @@ MediaTypeRepository mediaTypeRepository;
         this.userMediaHistoryRepository = userMediaHistoryRepository;
     }
 
-    //Track track, Video video, User user
 
     public HistoryServices(LikedMediaRepository likedMediaRepository, DislikedMediaRepository dislikedMediaRepository,
                            UserMediaHistoryRepository userMediaHistoryRepository,

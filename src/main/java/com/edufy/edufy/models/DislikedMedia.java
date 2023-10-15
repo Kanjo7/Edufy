@@ -15,9 +15,6 @@ public class DislikedMedia extends History {
         super(id, track, video, user);
     }
 
-    public DislikedMedia(int id, Track track, User user) {
-        super(id, track, user);
-    }
 
     @Override
     public int getId() {

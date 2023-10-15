@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    User findById(@Param("userId") int id);
+    User findById(@Param("userId") int userid);
 }
