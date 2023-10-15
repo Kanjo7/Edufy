@@ -61,4 +61,12 @@ public abstract class History {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
+    }
 }

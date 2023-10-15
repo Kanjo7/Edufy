@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface HistoryServiceInterface {
 
-    List<LikedMedia> getLikedMedia(int id);
+    List<LikedMedia> getLikedMedia();
 
     List<DislikedMedia> getDislikedMedia(int id);
 
@@ -22,7 +22,10 @@ public interface HistoryServiceInterface {
 
     DislikedMedia addDisliked(DislikedMedia media);
 
-    UserMediaHistory addUserMediaHistory(UserMediaHistory media);
+    UserMediaHistory addMediaToHistory(int type, int mediaId, int userId);
 
+/*    UserMediaHistory addTrack(int videoid, int userid);
+
+    UserMediaHistory addTrack()*/
 
 }
