@@ -22,9 +22,15 @@ public class Artist implements ContentCreator {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
+    @ManyToOne
+    @JoinColumn(name = "media_type_id")
+    private MediaType mediaType;
+
     //Constructors
     public Artist() {
     }
+
+
 
     public Artist(int id, String name, Genre genre) {
         this.id = id;

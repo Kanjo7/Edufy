@@ -14,7 +14,6 @@ public class Video extends Media{
     @JoinColumn(name = "album_id")
     private Album album;
 
-
     public Video (){
     }
 

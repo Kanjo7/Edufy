@@ -15,6 +15,25 @@ values ('Black Metal'),
        ('Reggae'),
        ('Bachata');
 
+insert into genre_media_type (genre_id, media_type_id)
+select g.genre_id, m.id
+from GENRES g
+         join MEDIA_TYPE m on m.type = 'music'
+where g.genre_name in ('Black Metal', 'Bachata', 'Thrash Metal', 'Crust Punk');
+
+insert into genre_media_type (genre_id, media_type_id)
+select g.genre_id, m.id
+from GENRES g
+         join MEDIA_TYPE m on m.type = 'video'
+where g.genre_name = 'Reggae';
+
+/*
+update GENRES
+set media_type_id = (select id from MEDIA_TYPE where type = 'podcast')
+where genre_name in ('Reggae', 'Bachata');
+*/
+
+
 insert into ARTISTS(genre_id, artist_name)
 values  (1,'Batushka'),
         (1,'Grima'),

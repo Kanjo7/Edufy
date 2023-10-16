@@ -24,6 +24,9 @@ public class Podhost implements ContentCreator{
 /*    @OneToMany(mappedBy = "episodes", cascade = CascadeType.ALL)
     private List<Episode> episodeList = new ArrayList<>();*/
 
+    @ManyToOne
+    @JoinColumn(name = "media_type_id")
+    private MediaType mediaType;
     public Podhost(){
     }
 /*
@@ -33,6 +36,8 @@ public class Podhost implements ContentCreator{
         this.genre = genre;
         this.episodeList = episodeList;
     }*/
+
+
 
     public int getId() {
         return id;

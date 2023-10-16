@@ -2,6 +2,8 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "media_type")
 public class MediaType {
@@ -13,6 +15,8 @@ public class MediaType {
     @Column(name = "type")
     private String type;
 
+    @ManyToMany(mappedBy = "mediaTypes")
+    private List<Genre> genres;
     public MediaType(String type) {
         this.type = type;
     }

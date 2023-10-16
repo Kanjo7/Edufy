@@ -1,5 +1,6 @@
 package com.edufy.edufy.repositories;
 
+import com.edufy.edufy.models.ContentCreator;
 import com.edufy.edufy.models.MediaType;
 import com.edufy.edufy.models.Video;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,7 @@
 package com.edufy.edufy.repositories;
 
 import com.edufy.edufy.models.Artist;
+import com.edufy.edufy.models.ContentCreator;
 import com.edufy.edufy.models.MediaType;
 import com.edufy.edufy.models.Track;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,4 +25,6 @@ public interface TrackRepository extends JpaRepository<Track,Integer> {
     List<Track> findTrackByArtistContainingIgnoreCase(@Param("artistName")String artistName);
 
     List<Track> findAllByMediaType(MediaType mediaType);
+
+
 }

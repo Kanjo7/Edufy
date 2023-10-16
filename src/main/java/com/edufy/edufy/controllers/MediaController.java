@@ -1,5 +1,7 @@
 package com.edufy.edufy.controllers;
 
+import com.edufy.edufy.models.ContentCreator;
+import com.edufy.edufy.models.Genre;
 import com.edufy.edufy.models.Media;
 import com.edufy.edufy.services.MediaServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,15 @@ public class MediaController {
     }
 
 
+    @GetMapping("/genrebymediatype/{mediaType}")
+    private List<Genre> genreByMediaType(@PathVariable("mediaType")String mediaType){
+        return mediaServices.genreByMediaType(mediaType);
+    }
+
+    @GetMapping("/getccbymediatype/{mediaType}")
+    private List<ContentCreator> allCCByMediaType(@PathVariable("mediaType")String mediaType){
+        return mediaServices.allCCByMediaType(mediaType);
+    }
     @GetMapping("/getallbymediatype/{mediaType}")
     public List<Media> allMediaByMediaType(@PathVariable("mediaType")String mediaType){
         return mediaServices.allMediaByMediaType(mediaType);

@@ -1,12 +1,7 @@
 package com.edufy.edufy.services;
 
-import com.edufy.edufy.models.Media;
-import com.edufy.edufy.models.MediaType;
-import com.edufy.edufy.models.Track;
-import com.edufy.edufy.models.Video;
-import com.edufy.edufy.repositories.MediaTypeRepository;
-import com.edufy.edufy.repositories.TrackRepository;
-import com.edufy.edufy.repositories.VideoRepository;
+import com.edufy.edufy.models.*;
+import com.edufy.edufy.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -21,9 +16,16 @@ public class MediaServices implements MediaServiceInterface {
     private TrackRepository trackRepository;
     @Autowired
     private VideoRepository videoRepository;
+    @Autowired
+    private ArtistRepository artistRepository;
 
     @Autowired
     private MediaTypeRepository mediaTypeRepository;
+    @Autowired
+    private PodhostRepository podhostRepository;
+
+    @Autowired
+    private GenreRepository genreRepository;
 
     @Override
     public List<Media> getAllMedia() {
@@ -36,7 +38,33 @@ public class MediaServices implements MediaServiceInterface {
         return allMedia;
     }
 
+    public List<Genre> genreByMediaType(String type){
+        MediaType mediaType = mediaTypeRepository.findMediaTypeByType(type);
+
+        List<Genre> genreList = genreRepository.findAllByMediaTypes(mediaType);
+
+        return genreList;
+    }
+
+    public List<ContentCreator> allCCByMediaType(String type){
+
+        // VIDEO SAKNAS, ÄR MEDIA, KANSKE SKA VARA CC OCKSÅ??
+
+        MediaType mediaType = mediaTypeRepository.findMediaTypeByType(type);
+        Set<ContentCreator> set = new LinkedHashSet<>();
+
+        List<ContentCreator> artistCC = artistRepository.findAllByMediaType(mediaType);
+        List<ContentCreator> podHostCC = podhostRepository.findAllByMediaType(mediaType);
+
+        set.addAll(artistCC);
+        set.addAll(podHostCC);
+
+        ArrayList<ContentCreator> allMedia = new ArrayList<>(set);
+        return  allMedia;
+    }
     public List<Media> allMediaByMediaType(String type){
+
+        // BORDE INNEFATTA ALBUM OCH ARTIST OCKSÅ??
 
         MediaType mediaType = mediaTypeRepository.findMediaTypeByType(type);
         Set<Media> set = new LinkedHashSet<>();
