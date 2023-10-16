@@ -2,13 +2,10 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Table(name = "podhosts")
-public class Podhost implements ContentCreator{
+public class Podhost implements ContentCreator, MediaInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "podhost_id", nullable = false)

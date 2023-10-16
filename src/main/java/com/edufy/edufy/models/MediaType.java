@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "media_type")
-public class MediaType {
+public class MediaType implements MediaInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

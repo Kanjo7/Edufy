@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "albums")
-public class Album {
+public class Album implements MediaInterface {
 
 
     @Id

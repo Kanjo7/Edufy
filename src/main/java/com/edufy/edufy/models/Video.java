@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "videos")
-public class Video extends Media{
+public class Video extends Media implements MediaInterface {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "artist_id")

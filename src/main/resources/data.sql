@@ -27,11 +27,6 @@ from GENRES g
          join MEDIA_TYPE m on m.type = 'video'
 where g.genre_name = 'Reggae';
 
-/*
-update GENRES
-set media_type_id = (select id from MEDIA_TYPE where type = 'podcast')
-where genre_name in ('Reggae', 'Bachata');
-*/
 
 
 insert into ARTISTS(genre_id, artist_name)

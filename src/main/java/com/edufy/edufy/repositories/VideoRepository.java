@@ -1,6 +1,6 @@
 package com.edufy.edufy.repositories;
 
-import com.edufy.edufy.models.ContentCreator;
+import com.edufy.edufy.models.MediaInterface;
 import com.edufy.edufy.models.MediaType;
 import com.edufy.edufy.models.Video;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,5 +19,5 @@ public interface VideoRepository extends JpaRepository<Video, Integer> {
     @Query("SELECT a FROM Video a JOIN a.genre genre WHERE genre.genreName = :genreName")
     List<Video> findVideoByGenreContainingIgnoreCase(@Param("genreName")String genreName);
 
-    List<Video> findAllByMediaType(MediaType mediaType);
+    List<MediaInterface> findAllByMediaType(MediaType mediaType);
 }

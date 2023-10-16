@@ -1,6 +1,8 @@
 package com.edufy.edufy.repositories;
 
 import com.edufy.edufy.models.Album;
+import com.edufy.edufy.models.MediaInterface;
+import com.edufy.edufy.models.MediaType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,5 +19,6 @@ public interface AlbumRepository extends JpaRepository<Album, Integer> {
     List<Album> findAlbumsByArtistName(@Param("artistName") String artistName);
     @Query("SELECT a FROM Album a JOIN a.trackList track WHERE track.name = :trackName")
     Album findAlbumByTrackName(@Param("trackName") String trackName);
+
 
 }

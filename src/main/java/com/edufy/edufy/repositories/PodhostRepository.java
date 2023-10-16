@@ -1,6 +1,6 @@
 package com.edufy.edufy.repositories;
 
-import com.edufy.edufy.models.ContentCreator;
+import com.edufy.edufy.models.MediaInterface;
 import com.edufy.edufy.models.MediaType;
 import com.edufy.edufy.models.Podhost;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface PodhostRepository extends JpaRepository<Podhost, Integer> {
-    List<ContentCreator> findAllByMediaType(MediaType mediaType);
+    List<MediaInterface> findAllByMediaType(MediaType mediaType);
 
 }
 
