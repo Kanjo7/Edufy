@@ -11,13 +11,17 @@ values ('music'),
 insert into GENRES (genre_name)
 values ('Black Metal'),
        ('Crust Punk'),
-       ('Thrash Metal');
+       ('Thrash Metal'),
+       ('Reggae'),
+       ('Bachata');
 
 insert into ARTISTS(genre_id, artist_name)
 values  (1,'Batushka'),
         (1,'Grima'),
         (2, 'Wolfbrigade'),
-        (3, 'Metallica');
+        (3, 'Metallica'),
+        (4, 'Bob Marley'),
+        (5, 'Romeo Santos');
 
 insert into albums(artist_id, album_title, release_date)
 VALUES (1, 'Litourgiya', '4-12-2015'),
@@ -25,49 +29,62 @@ VALUES (1, 'Litourgiya', '4-12-2015'),
        (2, 'Frostbitten', '29-7-2022'),
        (3, 'Run With the Hunted', '28-4-2017'),
        (4, 'Kill em All','25-07-1983'),
-       (4, 'Ride the Lightning ','27-07-1984');
+       (4, 'Ride the Lightning ','27-07-1984'),
+       (5, 'Confrontation ','23-05-1983'),
+       (6, 'Formula, Vol. 2','25-02-2014');
 
 
+insert into videos(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES (5,4,2,'Buffalo soldier','23-05-1983',5,'https://youtu.be/S5FCdx7Dn0o?si=g0igBAhVKxFPoMJ-'),
+       (5,4,2,'Chant Down Babylon','23-05-1983',5,'https://youtu.be/sTR8qnid3-U?si=k5bPg9LqEePwWveG'),
+       (5,4,2,'Jump Nyabinghi','23-05-1983',5,'https://youtu.be/_h8-2QvCTtI?si=NJJSgDa7D8123nq0'),
+       (5,4,2,'Mix Up, Mix Up','23-05-1983',5,'https://youtu.be/Z9uGJSpyIk0?si=je1ZVhf_OqPnE3PN'),
+       (5,4,2,'Give Thanks and Praises','23-05-1983',5,'https://youtu.be/RqofPeFNnNo?si=Gx_3cS-_VGSxbup4');
 
-insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
-VALUES (1, 1, 1, 'Yekteniya 1', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 2', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 3', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 4', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 5', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 6', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 7', '4-12-2015', 1),
-       (1, 1, 1,'Yekteniya 8', '4-12-2015', 1);
+insert into videos(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES (6,5,2,'Eres Mia','25-02-2014',6,'https://youtu.be/8iPcqtHoR3U?si=ps1h416Q3x4jvdUg'),
+       (6,5,2,'Inocente','25-02-2014',6,'https://youtu.be/mLwwyCKZZdk?si=OZfUTXEY6xtyZHgW'),
+       (6,5,2,'Cancioncitas De Amor','25-02-2014',6,'https://youtu.be/jk4HYngf65w?si=Iga5Tsbcta0MrwNw'),
+       (6,5,2,'Propuesta Indecente','25-02-2014',6,'https://youtu.be/QFs3PIZb3js?si=zgn6seX16wQXBAqX'),
+       (6,5,2,'Amigo','25-02-2014',6,'https://youtu.be/2p_eRTj5s5M?si=Rscx5gwA0sRClEm6');
 
+insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES (1, 1, 1, 'Yekteniya 1', '04-12-2015', 1,'https://open.spotify.com/track/1cQXDosKkPHAZVi7YWYX15'),
+       (1, 1, 1,'Yekteniya 2', '04-12-2015', 1, 'https://open.spotify.com/track/3V8k7s6ORTUFYJD7hKRg9O'),
+       (1, 1, 1,'Yekteniya 3', '04-12-2015', 1, 'https://open.spotify.com/track/0cxwhfboz5lX2rcxOqzPyb'),
+       (1, 1, 1,'Yekteniya 4', '04-12-2015', 1, 'https://open.spotify.com/track/56XB0noQfCYgSyREol4zDg'),
+       (1, 1, 1,'Yekteniya 5', '04-12-2015', 1, 'https://open.spotify.com/track/5IuXQQ3qGtKesuMCGpnx3Q'),
+       (1, 1, 1,'Yekteniya 6', '04-12-2015', 1, 'https://open.spotify.com/track/2OTHuzzpXnTXnAXJBtr0p5'),
+       (1, 1, 1,'Yekteniya 7', '04-12-2015', 1, 'https://open.spotify.com/track/3QdqzaUxlN0aHCuWDh54hR'),
+       (1, 1, 1,'Yekteniya 8', '04-12-2015', 1, 'https://open.spotify.com/track/7klYBHuZV8gmqiUkMBYwcR');
 
+insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES (2, 1, 1, 'Cedar and Owls', '22-01-2021',2,'https://open.spotify.com/track/5kDsoNpjCXcDoDvu9jkGid' ),
+       (2, 1, 1, 'Mourning Comes at Sunset', '22-01-2021',2,'https://open.spotify.com/track/2eUstamuLvpnYJjYv9Vzyn'),
+       (2, 1, 1, 'At the Foot of the Red Mountains', '22-01-2021',2,'https://open.spotify.com/track/7DdW2o2X5OBYXAwtBJeBQg'),
+       (2, 1, 1, 'Old Oak', '22-01-2021',2,'https://open.spotify.com/track/0JkmQDtM0q8yQvvcm6ZqQN'),
+       (2, 1, 1, 'Rotting Garden', '22-01-2021',2, 'https://open.spotify.com/track/3tQAktvLTw9tfG9uPV3Wgs'),
+       (2, 1, 1, 'Grom', '22-01-2021',2,'https://open.spotify.com/track/2WdktvMa7HDR6sJCVPiW0c'),
+       (2, 1, 1, 'Devotion to Lord', '22-01-2021',2,'https://open.spotify.com/track/4nKqHHswQifdB1K9trYMsa'),
+       (2, 1, 1, 'Gloomy Heart of the Coldest Land', '29-07-2022',2,'https://open.spotify.com/track/6kC20ciWqv0SpLr0jTXV72'),
+       (2, 1, 1, 'Giants Eternal Sleep', '29-07-2022',2,'https://open.spotify.com/track/2Mhd8Ykd4q3oujIDcYXyQd'),
+       (2, 1, 1, 'Into the Twilight', '29-07-2022',2,'https://open.spotify.com/track/3GBxz8dCi3h9iRVb9kZEbA'),
+       (2, 1, 1, 'Hunger God', '29-07-2022',2,'https://open.spotify.com/track/0DVMj3BKQomgyplcmEaiXA'),
+       (2, 1, 1, 'Moonspell and Grief','29-07-2022',2,'https://open.spotify.com/track/5vB7TocXozkSbabQuvCvaU'),
+       (2, 1, 1, 'Winter Morning Tower','29-07-2022',2,'https://open.spotify.com/track/5Ii1aGR6VhtfDp5FlOHGPH'),
+       (2, 1, 1, 'Mana', '29-07-2022',2,'https://open.spotify.com/track/0K9Qtu4xQCLVexxofj0EsO');
 
-insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
-VALUES (2, 1, 1, 'Cedar and Owls', '22-01-2021',2),
-       (2, 1, 1, 'Mourning Comes at Sunset', '22-01-2021',2),
-       (2, 1, 1, 'At the Foot of the Red Mountains', '22-01-2021',2),
-       (2, 1, 1, 'Old Oak', '22-01-2021',2),
-       (2, 1, 1, 'Rotting Garden', '22-01-2021',2),
-       (2, 1, 1, 'Grom', '22-01-2021',2),
-       (2, 1, 1, 'Devotion to Lord', '22-01-2021',2),
-       (2, 1, 1, 'Gloomy Heart of the Coldest Land', '29-7-2022',2),
-       (2, 1, 1, 'Giants Eternal Sleep', '29-7-2022',2),
-       (2, 1, 1, 'Into the Twilight', '29-7-2022',2),
-       (2, 1, 1, 'Hunger God', '29-7-2022',2),
-       (2, 1, 1, 'Moonspell and Grief', '29-7-2022',2),
-       (2, 1, 1, 'Winter Morning Tower', '29-7-2022',2),
-       (2, 1, 1, 'Mana', '29-7-2022',2);
-
-insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
-VALUES  (3, 2, 1, 'Nomad Pack', '28-4-2017',3),
-        (3, 2, 1, 'Warsaw Speedwolf', '28-4-2017',3),
-        (3, 2, 1, 'Lucid Monomania', '28-4-2017',3),
-        (3, 2, 1, 'No Reward', '28-4-2017',3),
-        (3, 2, 1, 'Kallocain', '28-4-2017',3),
-        (3, 2, 1, 'Return to None', '28-4-2017',3),
-        (3, 2, 1, 'War on Rules', '28-4-2017',3),
-        (3, 2, 1, 'Feral Blood', '28-4-2017',3),
-        (3, 2, 1, 'Under the Bell', '28-4-2017',3),
-        (3, 2, 1, 'Dead Cold', '28-4-2017',3);
+insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id, url)
+VALUES  (3, 2, 1, 'Nomad Pack', '28-04-2017',3,'https://open.spotify.com/track/79CTFuuz3ZgsPtXmWuxxMG'),
+        (3, 2, 1, 'Warsaw Speedwolf', '28-04-2017',3,'https://open.spotify.com/track/6M3DAZWL6ANSzHGUG9DowU'),
+        (3, 2, 1, 'Lucid Monomania', '28-04-2017',3,'https://open.spotify.com/track/6fRIpM6jfiJ5RtkewftkRA'),
+        (3, 2, 1, 'No Reward', '28-04-2017',3,'https://open.spotify.com/track/1ZH7duVv9WtH1OPI2Se1R1'),
+        (3, 2, 1, 'Kallocain', '28-04-2017',3,'https://open.spotify.com/track/1EZ455jzHbIqFMoR8Y2P0v'),
+        (3, 2, 1, 'Return to None', '28-04-2017',3,'https://open.spotify.com/track/6NkFqoRNQg1U7xjCuOtacs'),
+        (3, 2, 1, 'War on Rules', '28-04-2017',3,'https://open.spotify.com/track/0oVYdZmafAy9vaNWSetEtG'),
+        (3, 2, 1, 'Feral Blood', '28-04-2017',3,'https://open.spotify.com/track/2kR8GSj13WpFB1TjKcAO5W'),
+        (3, 2, 1, 'Under the Bell', '28-04-2017',3,'https://open.spotify.com/track/5NXQLAhhkEuW7bqpfwm1Y8'),
+        (3, 2, 1, 'Dead Cold', '28-04-2017',3,'https://open.spotify.com/track/3GysYt9oJo9jCncbFM6iuV');
 
 insert into tracks(artist_id, genre_id, media_type_id, media_name, release_date, album_id)
 VALUES (4, 3, 1, 'Hit the Lights', '25-07-1983', 5),

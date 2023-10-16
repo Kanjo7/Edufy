@@ -6,6 +6,15 @@ import jakarta.persistence.*;
 @Table(name = "videos")
 public class Video extends Media{
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "artist_id")
+    private Artist artist;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "album_id")
+    private Album album;
+
+
     public Video (){
     }
 
