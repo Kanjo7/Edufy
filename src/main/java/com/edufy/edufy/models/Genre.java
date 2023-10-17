@@ -3,6 +3,8 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "genres")
 public class Genre {
@@ -14,6 +16,14 @@ public class Genre {
 
     @Column(name = "genre_name")
     String genreName;
+
+    @ManyToMany
+    @JoinTable(
+            name = "genre_media_type",
+            joinColumns = @JoinColumn(name = "genre_id"),
+            inverseJoinColumns = @JoinColumn(name = "media_type_id")
+    )
+    private List<MediaType> mediaTypes;
 
     /*
     @ManyToMany(cascade = CascadeType.ALL)
@@ -48,5 +58,6 @@ public class Genre {
     public void setGenreName(String genreName) {
         this.genreName = genreName;
     }
+
 
 }

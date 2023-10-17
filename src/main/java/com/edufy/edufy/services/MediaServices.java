@@ -1,12 +1,10 @@
 package com.edufy.edufy.services;
 
-import com.edufy.edufy.models.Media;
-import com.edufy.edufy.models.Track;
-import com.edufy.edufy.models.Video;
-import com.edufy.edufy.repositories.TrackRepository;
-import com.edufy.edufy.repositories.VideoRepository;
+import com.edufy.edufy.models.*;
+import com.edufy.edufy.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -19,16 +17,45 @@ public class MediaServices implements MediaServiceInterface {
     private TrackRepository trackRepository;
     @Autowired
     private VideoRepository videoRepository;
+    @Autowired
+    private ArtistRepository artistRepository;
 
+    @Autowired
+    private MediaTypeRepository mediaTypeRepository;
+    @Autowired
+    private PodhostRepository podhostRepository;
+
+
+    @Autowired
+    private GenreRepository genreRepository;
 
     @Override
-    public List<Media> getAllMedia() {
+    public List<MediaInterface> getAllMedia() {
         List<Track> allTracks = trackRepository.findAll();
         List<Video> allVideos = videoRepository.findAll();
 
-        Set<Media> set = new LinkedHashSet<>(allTracks);
+        Set<MediaInterface> set = new LinkedHashSet<>(allTracks);
         set.addAll(allVideos);
-        ArrayList<Media> allMedia = new ArrayList<>(set);
+        ArrayList<MediaInterface> allMedia = new ArrayList<>(set);
+        return allMedia;
+    }
+
+
+
+    public List<MediaInterface> allMediaByMediaType(String type) {
+
+        MediaType mediaType = mediaTypeRepository.findMediaTypeByType(type);
+        Set<MediaInterface> set = new LinkedHashSet<>();
+
+        List<MediaInterface> artistCC = artistRepository.findAllByMediaType(mediaType);
+        List<MediaInterface> podHostCC = podhostRepository.findAllByMediaType(mediaType);
+        List<MediaInterface> videoMI = videoRepository.findAllByMediaType(mediaType);
+
+        set.addAll(artistCC);
+        set.addAll(podHostCC);
+        set.addAll(videoMI);
+
+        ArrayList<MediaInterface> allMedia = new ArrayList<>(set);
         return allMedia;
     }
 

@@ -1,12 +1,7 @@
 package com.edufy.edufy.repositories;
 
-import com.edufy.edufy.models.Album;
-import com.edufy.edufy.models.Artist;
-import com.edufy.edufy.models.Genre;
-import com.edufy.edufy.models.Track;
-import org.springframework.data.jpa.repository.EntityGraph;
+import com.edufy.edufy.models.*;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +14,5 @@ public interface ArtistRepository extends JpaRepository<Artist, Integer> {
 /*    List<Artist> findArtistByGenre(int id);*/
     List<Artist> findArtistsByGenre_Id(@Param("id") int id);
 
+    List<MediaInterface> findAllByMediaType(MediaType mediaType);
 }

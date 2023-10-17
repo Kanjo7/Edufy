@@ -3,13 +3,10 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Table(name = "artists")
-public class Artist implements ContentCreator {
+public class Artist implements ContentCreator, MediaInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "artist_id", nullable = false)
@@ -22,9 +19,15 @@ public class Artist implements ContentCreator {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
+    @ManyToOne
+    @JoinColumn(name = "media_type_id")
+    private MediaType mediaType;
+
     //Constructors
     public Artist() {
     }
+
+
 
     public Artist(int id, String name, Genre genre) {
         this.id = id;

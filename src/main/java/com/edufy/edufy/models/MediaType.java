@@ -2,9 +2,11 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "media_type")
-public class MediaType {
+public class MediaType implements MediaInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -13,6 +15,8 @@ public class MediaType {
     @Column(name = "type")
     private String type;
 
+    @ManyToMany(mappedBy = "mediaTypes")
+    private List<Genre> genres;
     public MediaType(String type) {
         this.type = type;
     }
@@ -26,5 +30,13 @@ public class MediaType {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

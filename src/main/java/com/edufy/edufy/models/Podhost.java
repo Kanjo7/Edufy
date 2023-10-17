@@ -2,13 +2,10 @@ package com.edufy.edufy.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Table(name = "podhosts")
-public class Podhost implements ContentCreator{
+public class Podhost implements ContentCreator, MediaInterface {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "podhost_id", nullable = false)
@@ -24,6 +21,9 @@ public class Podhost implements ContentCreator{
 /*    @OneToMany(mappedBy = "episodes", cascade = CascadeType.ALL)
     private List<Episode> episodeList = new ArrayList<>();*/
 
+    @ManyToOne
+    @JoinColumn(name = "media_type_id")
+    private MediaType mediaType;
     public Podhost(){
     }
 /*
@@ -33,6 +33,8 @@ public class Podhost implements ContentCreator{
         this.genre = genre;
         this.episodeList = episodeList;
     }*/
+
+
 
     public int getId() {
         return id;

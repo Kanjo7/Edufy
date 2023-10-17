@@ -3,7 +3,7 @@ package com.edufy.edufy.models;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "Podcasts")
-public class Podcast {
+public class Podcast implements MediaInterface {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
